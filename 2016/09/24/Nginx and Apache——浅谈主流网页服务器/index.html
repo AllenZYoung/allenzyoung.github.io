@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="读书," />
+  <meta name="keywords" content="Web Server,服务器," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;毛润之是个诗人，不在于他的近体诗或者律诗有多高的水准（其实他的诗写的相当一般，这一点他本人在给陈毅的信中也提到了）。毛润之之所以为诗人，在于其极端的精神理想主义，他以革命乐观主义精神闻名20世纪，这一点从那三句“其乐无穷”中就能看出来。">
+<meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="润之词作欣赏">
-<meta property="og:url" content="http://yoursite.com/2015/10/18/润之词作欣赏/index.html">
+<meta property="og:title" content="Apache和Nginx——浅谈主流Web服务器">
+<meta property="og:url" content="http://yoursite.com/2016/09/24/Nginx and Apache——浅谈主流网页服务器/index.html">
 <meta property="og:site_name" content="A.Z.Young's">
-<meta property="og:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;毛润之是个诗人，不在于他的近体诗或者律诗有多高的水准（其实他的诗写的相当一般，这一点他本人在给陈毅的信中也提到了）。毛润之之所以为诗人，在于其极端的精神理想主义，他以革命乐观主义精神闻名20世纪，这一点从那三句“其乐无穷”中就能看出来。">
-<meta property="og:updated_time" content="2016-09-03T13:30:39.583Z">
+<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。">
+<meta property="og:image" content="https://blog.coolicehost.com/wp-content/uploads/2015/08/Nginx-vs-Apache.png">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/653561-15a3d6213bb0e3b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-09-24T12:19:30.850Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="润之词作欣赏">
-<meta name="twitter:description" content="&amp;#160; &amp;#160; &amp;#160; &amp;#160;毛润之是个诗人，不在于他的近体诗或者律诗有多高的水准（其实他的诗写的相当一般，这一点他本人在给陈毅的信中也提到了）。毛润之之所以为诗人，在于其极端的精神理想主义，他以革命乐观主义精神闻名20世纪，这一点从那三句“其乐无穷”中就能看出来。">
+<meta name="twitter:title" content="Apache和Nginx——浅谈主流Web服务器">
+<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。">
+<meta name="twitter:image" content="https://blog.coolicehost.com/wp-content/uploads/2015/08/Nginx-vs-Apache.png">
 
 
 
@@ -114,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/10/18/润之词作欣赏/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/24/Nginx and Apache——浅谈主流网页服务器/"/>
 
-  <title> 润之词作欣赏 | A.Z.Young's </title>
+  <title> Apache和Nginx——浅谈主流Web服务器 | A.Z.Young's </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +275,7 @@
             
             
               
-                润之词作欣赏
+                Apache和Nginx——浅谈主流Web服务器
               
             
           </h1>
@@ -284,8 +287,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-18T22:35:31+08:00" content="2015-10-18">
-              2015-10-18
+            <time itemprop="dateCreated" datetime="2016-09-24T20:20:01+08:00" content="2016-09-24">
+              2016-09-24
             </time>
           </span>
 
@@ -298,8 +301,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔杂谈/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔杂谈</span>
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -314,8 +317,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/18/润之词作欣赏/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/18/润之词作欣赏/" itemprop="commentsCount"></span>
+                <a href="/2016/09/24/Nginx and Apache——浅谈主流网页服务器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/Nginx and Apache——浅谈主流网页服务器/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -343,25 +346,40 @@
       
 
       
-        <p>&#160; &#160; &#160; &#160;毛润之是个诗人，不在于他的近体诗或者律诗有多高的水准（其实他的诗写的相当一般，这一点他本人在给陈毅的信中也提到了）。毛润之之所以为诗人，在于其极端的精神理想主义，他以革命乐观主义精神闻名20世纪，这一点从那三句“其乐无穷”中就能看出来。<a id="more"></a>他笔下的战场都是浪漫的，“战地黄花分外香”；他笔下的溃退都是潇洒的，“而今迈步从头越”；他笔下的血流成河，也是美学意味上的，“钟山风雨起苍黄”。论文学成就，这是一位近现代颇有地位的词人，近人好将长短句分为两派，一曰婉约，一曰豪放。依此法，润之当入豪放一家。忆秦娥中“苍山如海，残阳如血。”八字，便足以名跻苏辛之后，晚年仍有“君且去，休回顾。”，“歌未竟，东方白。”此等佳句，其文学成就可想。毛词多为“数风流人物”这类豪迈之姿，大开大合，汪洋恣肆，笔锋起落间可上天入地，往来古今，但也不乏儿女情长，杨柳依依之细腻呓语。</p>
-<p>&#160; &#160; &#160; &#160;读润之词，当推以下几作：</p>
-<p>&#160; &#160; &#160; &#160;采桑子《重阳》，上阕末，“战地黄花”竟能分外香，下阕又转入寥廓江天万里霜，此作写于二十年代末，其汪洋捭阖之风，于沁园春《雪》中上扬至巅峰，然《雪》颇有工凿之意，不比此作浑然天成。</p>
-<p>&#160; &#160; &#160; &#160;忆秦娥《娄山关》，全文在此——</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。</p>
+<p><img src="https://blog.coolicehost.com/wp-content/uploads/2015/08/Nginx-vs-Apache.png" alt=""><br><a id="more"></a></p>
+<h2 id="Web-Framework-and-Web-Server"><a href="#Web-Framework-and-Web-Server" class="headerlink" title="Web Framework and Web Server"></a>Web Framework and Web Server</h2><p>&#160; &#160; &#160; &#160;<strong>Web服务器实际上是一个应用程序</strong>，但也可以代指运行程序的那个机器，这个概念其实挺模糊的：</p>
 <blockquote>
-<p>西风烈，<br>长空雁叫霜晨月。<br>霜晨月，<br>马蹄声碎，<br>喇叭声咽。<br>雄关漫道真如铁，<br>而今迈步从头越。<br>从头越，<br>苍山如海，<br>残阳如血。</p>
+<p>The application responsible for sending HTML to browsers is called a web server. Confusingly, the machine this application resides on is also usually called a web server.（引自<a href="https://jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/" target="_blank" rel="external">What is a Web Framework?</a>）</p>
 </blockquote>
-<p>&#160; &#160; &#160; &#160;此作不仅形式极工，用字推敲也颇见水准，烈，叫，碎，咽，铁，越，以及最后苍山如海，残阳如血，皆可称妙笔，全词可见李白（据传为青莲所作，各家看法不一）《忆秦娥》遗风，然隐约见更高更广之势。</p>
-<p>&#160; &#160; &#160; &#160;蝶恋花《答李淑一》，此作非常，乃追忆杨开慧之作，全词如下——</p>
-<blockquote>
-<p>我失骄杨君失柳，<br>杨柳轻飏直上重霄九。<br>问讯吴刚何所有，<br>吴刚捧出桂花酒。<br>寂寞嫦娥舒广袖，<br>万里长空且为忠魂舞。<br>忽报人间曾伏虎，<br>泪飞顿作倾盆雨。</p>
-</blockquote>
-<p>&#160; &#160; &#160; &#160;首句“我失骄杨君失柳”即有热泪满眶，哀思万千之态，末句“倾盆雨”则直教人扼腕。英雄已老，美人已逝，香魂断，江山在，当年我我卿卿，今日徒留老叟姑妄言其重霄九，何其悲哉！</p>
-<p>&#160; &#160; &#160; &#160;贺新郎《读史》——</p>
-<blockquote>
-<p>人猿相揖别。<br>只几个石头磨过，小儿时节。<br>铜铁炉中翻火焰，为问何时猜得？<br>不过几千寒热。<br>人世难逢开口笑，上疆场彼此弯弓月。<br>流遍了，郊原血。<br>一篇读罢头飞雪，但记得斑斑点点，几行陈迹。<br>五帝三皇神圣事，骗了无涯过客。<br>有多少风流人物？<br>盗跖庄蹻流誉后，更陈王奋起挥黄钺。<br>歌未竟，东方白。</p>
-</blockquote>
-<p>&#160; &#160; &#160; &#160;此作乃建国后最有价值之作，上阕寥寥几笔说尽人类文明发展史，收笔于沙场喋血之景，“人世难逢开口笑”更是历经风雨后的叹惋，可与“天若有情天亦老，人间正道是沧桑。”相对照。下片更是笔锋奇诡，说三皇五帝等光辉传说乃骗局，论及风流人物，不谈姬旦，祖龙；不谈汉武，唐宗；而是于盗跖陈胜诸草民流寇上发笔力千钧，不可谓不震撼。张本至此，竟以“歌未竟，东方白。”六字戛然收住，又留一个无尽的画面于此，东方白者，与东方红又有何区别！此作于文字上功底已显然，而思想内涵方面，读懂此作，可谓读懂润之一生，绝非妄语。</p>
-<p>&#160; &#160; &#160; &#160;润之词作佳句甚多，“汽笛一声肠已断，从此天涯孤旅。“乃青年”矫情“之至臻境界，”神女应无恙，当惊世界殊。“则可谓“谁主沉浮，””还看今朝“之续笔。读润之词，即知蒋公绝无统一之可能，毛生于湖南，却能有北中国之魄力，生于乡野，却能扼诸显贵之头颅。当年所谓“庙小妖风大，池浅王八多。”之戏语，又岂是仅仅为戏语作之？谁能够继承华夏世界的威烈和荣光，谁就配承担华夏民族的英名。</p>
+<p>&#160; &#160; &#160; &#160;<strong>Web server有很多种，但其最根本的任务是一致的：从网络接受HTTP请求，然后提供HTTP回复给请求者。</strong>HTTP回复一般包含一个HTML文件，有时也可以包含纯文本文件、图像或其他类型的文件。Web服务器一般通过HTTP协议与客户端通信，因此也被称为HTTP服务器。换句话说，Web server主要和网络IO打交道。目前主流的Web服务器有Apache，Nginx以及微软的IIS等。</p>
+<p>&#160; &#160; &#160; &#160;不过，Web服务器主要着眼点在于高并发、高性能，以静态内容和前端代理为主，却不擅长于生成动态内容，所以这个时候便出现了很多Web框架来负责具体Web应用的逻辑，这些Web框架提供了一套完整的功能（如router函数等）来生成动态内容（为了节省配置时间，很多Web框架一般都自带了一个简单的Web服务器，这样方便在开发阶段直接看到结果，方便修改调试）。Web框架和Web服务器的关系如下图：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/653561-15a3d6213bb0e3b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="Apache-vs-Nginx"><a href="#Apache-vs-Nginx" class="headerlink" title="Apache vs Nginx"></a>Apache vs Nginx</h2><p>&#160; &#160; &#160; &#160;<strong>Apache HTTP Server</strong>是Apache软件基金会的一个开放源代码的网页服务器，可以在大多数计算机操作系统中运行，是最流行的Web服务器端软件之一。 Apache通过一个动态加载模块系统来实现可扩展，并且能在不连接外部软件的情况下，独自处理大量解释型语言。</p>
+<p>&#160; &#160; &#160; &#160;Apache是基于模块化设计的，它的核心代码并不多，大多数的功能都被分散到各个模块中，各个模块在系统启动的时候按需动态载入。举个例子，Apache中有一个重要的组件就是APR（Apache portable Runtime Library），即Apache可移植运行库，它是一个对操作系统调用的抽象库，用来实现Apache内部组件对操作系统的使用，提高系统的可移植性。而 Apache对于php的解析，就是通过众多Module中的php Module来完成的。</p>
+<p>&#160; &#160; &#160; &#160;<strong>Nginx</strong>是一款来自俄国的面向性能设计的HTTP服务器，能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接。（阿里巴巴还将其改装成了一款”本土化“的<a href="https://github.com/alibaba/tengine" target="_blank" rel="external">Tengine</a>）Nginx 擅长于快速处理静态内容，并且它被设计为可向其他软件传递动态请求（Nginx 本身没有处理动态内容的能力），Nginx拥有出色的资源利用度以及负载时的响应能力。</p>
+<p>&#160; &#160; &#160;Nginx由内核和模块组成，Nginx（内核）本身做的工作实际很少，当它接到一个HTTP请求时，它仅仅是通过查找配置文件将此次请求映射到一个location block，而此location中所配置的各个指令则会启动不同的模块去完成工作，因此模块可以看做Nginx真正的工作者。在 Nginx 中，模块不是动态加载的，因此必须事先选择好并将它们编译。</p>
+<h3 id="连接处理"><a href="#连接处理" class="headerlink" title="连接处理"></a>连接处理</h3><p>&#160; &#160; &#160; &#160;Apache 和 Nginx 最大的不同在于它们对连接和流量传输处理的方式。Apache 提供一系列多路处理模块（Apache 称这些为 MPMs），用于指示如何处理客户端请求。大致来说，它允许管理员轻松地更换它的连接处理架构。MPM（Multi -Processing Modules，多重处理模块）是Apache的核心组件之一，Apache通过MPM来使用操作系统的资源，对进程和线程池进行管理。</p>
+<p>&#160; &#160; &#160; &#160;Nginx 使用了一种异步的，非阻塞的，事件驱动的连接处理算法进行全新设计。Nginx 产生许多工作进程，每个进程处理上千个连接。工作进程通过实现一种快速遍历机制来持续不断地检查和处理事件，以此来完成工作。因为 Nginx 服务器是单线程的，并且进程不会产生子进程去处理新的连接，所以内存和 CPU 占用会相对稳定，即使是在高负载的情况下。</p>
+<h3 id="静态与动态内容"><a href="#静态与动态内容" class="headerlink" title="静态与动态内容"></a>静态与动态内容</h3><p>&#160; &#160; &#160; &#160;Apache静态动态内容都可处理，它可以在 web 服务器内部执行动态内容，而无需依赖外部组件。动态处理器能够通过使用动态载入模块来启动。Nginx 本身没有处理动态内容的能力。为了处理 PHP 以及其他生成动态内容的请求，Nginx 必须传递信息给外部处理器来执行，并且等待渲染内容被传输回来。最终结果将返回给客户端。</p>
+<p>&#160; &#160; &#160; &#160;Apache相对Nginx的优点：</p>
+<ul>
+<li>模块组件多，可供选择的范围广</li>
+<li>有很多丰富的特性</li>
+<li>比Nginx的rewrite 强大</li>
+<li>兼容性、稳定性强，bug相对较少</li>
+<li>处理动态请求有优势</li>
+</ul>
+<p>&#160; &#160; &#160; &#160;Nginx相对Apache的优点：</p>
+<ul>
+<li>轻量级，比Apache 占用更少的内存及资源</li>
+<li>速度性能强于Apache（Nginx 处理请求是异步非阻塞的，而Apache 则是阻塞型I/O多线程的，在高并发下Nginx 能保持低资源低消耗高性能）</li>
+<li>负载均衡</li>
+<li>静态文件处理性能好</li>
+</ul>
+<h2 id="Lighttpd-Tomcat与其他"><a href="#Lighttpd-Tomcat与其他" class="headerlink" title="Lighttpd, Tomcat与其他"></a>Lighttpd, Tomcat与其他</h2><p>&#160; &#160; &#160; &#160;Lighttpd是一个来自德国的开源Web服务器软件，旨在提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销，cpu占用率低，效能好，以及丰富的模块等特点。</p>
+<p>&#160; &#160; &#160; &#160; Tomacat是Apache基金会提供的Servlet容器，实现了对Servlet（是用Java编写的服务器端程序。其主要功能在于交互式地浏览和修改数据，生成动态Web内容）和Java Server Page（JSP）的支持，并提供了作为Web服务器的一些特有功能。由于Tomcat本身也内含了一个HTTP服务器，它也可以被视作一个单独的Web服务器。但是，不能将Tomcat和Apache Web服务器混淆。（摘自Wikipedia）Tomcat是支持运行Servlet/JSP应用程序的容器。虽然Tomcat也可以认为是HTTP服务器，但通常它会和Nginx/Apache配合在一起使用。</p>
+<h2 id="主要参考资料"><a href="#主要参考资料" class="headerlink" title="主要参考资料"></a>主要参考资料</h2><p><a href="https://www.zhihu.com/question/32212996" target="_blank" rel="external">https://www.zhihu.com/question/32212996</a><br><a href="https://jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/" target="_blank" rel="external">https://jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/</a><br><a href="https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations</a></p>
 
       
     </div>
@@ -405,7 +423,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/读书/" rel="tag">#读书</a>
+            <a href="/tags/Web-Server/" rel="tag">#Web Server</a>
+          
+            <a href="/tags/服务器/" rel="tag">#服务器</a>
           
         </div>
       
@@ -414,17 +434,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/29/你是谁/" rel="next" title="你是谁？">
-                <i class="fa fa-chevron-left"></i> 你是谁？
+              <a href="/2016/07/09/读《精进——如何成为一个很厉害的人》/" rel="next" title="读《精进——如何成为一个很厉害的人》">
+                <i class="fa fa-chevron-left"></i> 读《精进——如何成为一个很厉害的人》
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/25/读书安排与其他 /" rel="prev" title="读书安排与其他">
-                读书安排与其他 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -473,8 +489,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/18/润之词作欣赏/"
-           data-title="润之词作欣赏" data-url="http://yoursite.com/2015/10/18/润之词作欣赏/">
+      <div class="ds-thread" data-thread-key="2016/09/24/Nginx and Apache——浅谈主流网页服务器/"
+           data-title="Apache和Nginx——浅谈主流Web服务器" data-url="http://yoursite.com/2016/09/24/Nginx and Apache——浅谈主流网页服务器/">
       </div>
     
   </div>
@@ -594,7 +610,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-Framework-and-Web-Server"><span class="nav-text">Web Framework and Web Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-vs-Nginx"><span class="nav-text">Apache vs Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接处理"><span class="nav-text">连接处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态与动态内容"><span class="nav-text">静态与动态内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lighttpd-Tomcat与其他"><span class="nav-text">Lighttpd, Tomcat与其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要参考资料"><span class="nav-text">主要参考资料</span></a></li></ol></div>
             
           </div>
         </section>
