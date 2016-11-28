@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Web Server,服务器," />
+  <meta name="keywords" content="读书,团队组织," />
 
 
 
@@ -84,19 +84,28 @@
 
 
 
-<meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。">
+<meta name="description" content="《党委会的工作方法》是毛选第四卷中的一篇，谈到了很多团队组织与工作中的问题。现特整理读书笔记如下：
+
+“书记、副书记如果不注意向自己的“一班人”作宣传工作和组织工作，不善于处理自己和委员之间的关系，不去研究怎样把会议开好，就很难把这“一班人”指挥好。如果这“一班人”动作不整齐，就休想带领千百万人去作战，去建设。”
+强调组织的重要性，组织工作方法的重要性。
+个人理解的好的团队组织：步调一致，节奏和谐">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Apache和Nginx——浅谈主流Web服务器">
-<meta property="og:url" content="http://yoursite.com/2016/09/24/Nginx and Apache——浅谈主流网页服务器/index.html">
+<meta property="og:title" content="读《党委会的工作方法》">
+<meta property="og:url" content="http://yoursite.com/2016/11/28/读《党委会的工作方法》/index.html">
 <meta property="og:site_name" content="A.Z.Young's">
-<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。">
-<meta property="og:image" content="https://blog.coolicehost.com/wp-content/uploads/2015/08/Nginx-vs-Apache.png">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/653561-15a3d6213bb0e3b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-09-24T12:19:30.850Z">
+<meta property="og:description" content="《党委会的工作方法》是毛选第四卷中的一篇，谈到了很多团队组织与工作中的问题。现特整理读书笔记如下：
+
+“书记、副书记如果不注意向自己的“一班人”作宣传工作和组织工作，不善于处理自己和委员之间的关系，不去研究怎样把会议开好，就很难把这“一班人”指挥好。如果这“一班人”动作不整齐，就休想带领千百万人去作战，去建设。”
+强调组织的重要性，组织工作方法的重要性。
+个人理解的好的团队组织：步调一致，节奏和谐">
+<meta property="og:updated_time" content="2016-11-28T10:28:16.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Apache和Nginx——浅谈主流Web服务器">
-<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。">
-<meta name="twitter:image" content="https://blog.coolicehost.com/wp-content/uploads/2015/08/Nginx-vs-Apache.png">
+<meta name="twitter:title" content="读《党委会的工作方法》">
+<meta name="twitter:description" content="《党委会的工作方法》是毛选第四卷中的一篇，谈到了很多团队组织与工作中的问题。现特整理读书笔记如下：
+
+“书记、副书记如果不注意向自己的“一班人”作宣传工作和组织工作，不善于处理自己和委员之间的关系，不去研究怎样把会议开好，就很难把这“一班人”指挥好。如果这“一班人”动作不整齐，就休想带领千百万人去作战，去建设。”
+强调组织的重要性，组织工作方法的重要性。
+个人理解的好的团队组织：步调一致，节奏和谐">
 
 
 
@@ -117,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/24/Nginx and Apache——浅谈主流网页服务器/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/28/读《党委会的工作方法》/"/>
 
-  <title> Apache和Nginx——浅谈主流Web服务器 | A.Z.Young's </title>
+  <title> 读《党委会的工作方法》 | A.Z.Young's </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -275,7 +284,7 @@
             
             
               
-                Apache和Nginx——浅谈主流Web服务器
+                读《党委会的工作方法》
               
             
           </h1>
@@ -287,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-24T20:20:01+08:00" content="2016-09-24">
-              2016-09-24
+            <time itemprop="dateCreated" datetime="2016-11-28T16:00:10+08:00" content="2016-11-28">
+              2016-11-28
             </time>
           </span>
 
@@ -301,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
+                  <a href="/categories/随笔杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔杂谈</span>
                   </a>
                 </span>
 
@@ -317,8 +326,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/24/Nginx and Apache——浅谈主流网页服务器/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/Nginx and Apache——浅谈主流网页服务器/" itemprop="commentsCount"></span>
+                <a href="/2016/11/28/读《党委会的工作方法》/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/读《党委会的工作方法》/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -346,40 +355,62 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&#160; &#160; &#160; &#160;最近一直在学习Flask（知名的Python Web框架），也试着在用轮子搭建一个很粗糙的项目，偶然得知Nginx vs Apache 是个很经典的问题，关于Web框架，Web服务器，还有主流的Web服务器对比，暂且把网上的资料结合自己的理解总结一下。</p>
-<p><img src="https://blog.coolicehost.com/wp-content/uploads/2015/08/Nginx-vs-Apache.png" alt=""><br><a id="more"></a></p>
-<h2 id="Web-Framework-and-Web-Server"><a href="#Web-Framework-and-Web-Server" class="headerlink" title="Web Framework and Web Server"></a>Web Framework and Web Server</h2><p>&#160; &#160; &#160; &#160;<strong>Web服务器实际上是一个应用程序</strong>，但也可以代指运行程序的那个机器，这个概念其实挺模糊的：</p>
-<blockquote>
-<p>The application responsible for sending HTML to browsers is called a web server. Confusingly, the machine this application resides on is also usually called a web server.（引自<a href="https://jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/" target="_blank" rel="external">What is a Web Framework?</a>）</p>
-</blockquote>
-<p>&#160; &#160; &#160; &#160;<strong>Web server有很多种，但其最根本的任务是一致的：从网络接受HTTP请求，然后提供HTTP回复给请求者。</strong>HTTP回复一般包含一个HTML文件，有时也可以包含纯文本文件、图像或其他类型的文件。Web服务器一般通过HTTP协议与客户端通信，因此也被称为HTTP服务器。换句话说，Web server主要和网络IO打交道。目前主流的Web服务器有Apache，Nginx以及微软的IIS等。</p>
-<p>&#160; &#160; &#160; &#160;不过，Web服务器主要着眼点在于高并发、高性能，以静态内容和前端代理为主，却不擅长于生成动态内容，所以这个时候便出现了很多Web框架来负责具体Web应用的逻辑，这些Web框架提供了一套完整的功能（如router函数等）来生成动态内容（为了节省配置时间，很多Web框架一般都自带了一个简单的Web服务器，这样方便在开发阶段直接看到结果，方便修改调试）。Web框架和Web服务器的关系如下图：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/653561-15a3d6213bb0e3b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="Apache-vs-Nginx"><a href="#Apache-vs-Nginx" class="headerlink" title="Apache vs Nginx"></a>Apache vs Nginx</h2><p>&#160; &#160; &#160; &#160;<strong>Apache HTTP Server</strong>是Apache软件基金会的一个开放源代码的网页服务器，可以在大多数计算机操作系统中运行，是最流行的Web服务器端软件之一。 Apache通过一个动态加载模块系统来实现可扩展，并且能在不连接外部软件的情况下，独自处理大量解释型语言。</p>
-<p>&#160; &#160; &#160; &#160;Apache是基于模块化设计的，它的核心代码并不多，大多数的功能都被分散到各个模块中，各个模块在系统启动的时候按需动态载入。举个例子，Apache中有一个重要的组件就是APR（Apache portable Runtime Library），即Apache可移植运行库，它是一个对操作系统调用的抽象库，用来实现Apache内部组件对操作系统的使用，提高系统的可移植性。而 Apache对于php的解析，就是通过众多Module中的php Module来完成的。</p>
-<p>&#160; &#160; &#160; &#160;<strong>Nginx</strong>是一款来自俄国的面向性能设计的HTTP服务器，能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接。（阿里巴巴还将其改装成了一款”本土化“的<a href="https://github.com/alibaba/tengine" target="_blank" rel="external">Tengine</a>）Nginx 擅长于快速处理静态内容，并且它被设计为可向其他软件传递动态请求（Nginx 本身没有处理动态内容的能力），Nginx拥有出色的资源利用度以及负载时的响应能力。</p>
-<p>&#160; &#160; &#160;Nginx由内核和模块组成，Nginx（内核）本身做的工作实际很少，当它接到一个HTTP请求时，它仅仅是通过查找配置文件将此次请求映射到一个location block，而此location中所配置的各个指令则会启动不同的模块去完成工作，因此模块可以看做Nginx真正的工作者。在 Nginx 中，模块不是动态加载的，因此必须事先选择好并将它们编译。</p>
-<h3 id="连接处理"><a href="#连接处理" class="headerlink" title="连接处理"></a>连接处理</h3><p>&#160; &#160; &#160; &#160;Apache 和 Nginx 最大的不同在于它们对连接和流量传输处理的方式。Apache 提供一系列多路处理模块（Apache 称这些为 MPMs），用于指示如何处理客户端请求。大致来说，它允许管理员轻松地更换它的连接处理架构。MPM（Multi -Processing Modules，多重处理模块）是Apache的核心组件之一，Apache通过MPM来使用操作系统的资源，对进程和线程池进行管理。</p>
-<p>&#160; &#160; &#160; &#160;Nginx 使用了一种异步的，非阻塞的，事件驱动的连接处理算法进行全新设计。Nginx 产生许多工作进程，每个进程处理上千个连接。工作进程通过实现一种快速遍历机制来持续不断地检查和处理事件，以此来完成工作。因为 Nginx 服务器是单线程的，并且进程不会产生子进程去处理新的连接，所以内存和 CPU 占用会相对稳定，即使是在高负载的情况下。</p>
-<h3 id="静态与动态内容"><a href="#静态与动态内容" class="headerlink" title="静态与动态内容"></a>静态与动态内容</h3><p>&#160; &#160; &#160; &#160;Apache静态动态内容都可处理，它可以在 web 服务器内部执行动态内容，而无需依赖外部组件。动态处理器能够通过使用动态载入模块来启动。Nginx 本身没有处理动态内容的能力。为了处理 PHP 以及其他生成动态内容的请求，Nginx 必须传递信息给外部处理器来执行，并且等待渲染内容被传输回来。最终结果将返回给客户端。</p>
-<p>&#160; &#160; &#160; &#160;Apache相对Nginx的优点：</p>
+        <p>《党委会的工作方法》是毛选第四卷中的一篇，谈到了很多团队组织与工作中的问题。现特整理读书笔记如下：</p>
 <ul>
-<li>模块组件多，可供选择的范围广</li>
-<li>有很多丰富的特性</li>
-<li>比Nginx的rewrite 强大</li>
-<li>兼容性、稳定性强，bug相对较少</li>
-<li>处理动态请求有优势</li>
+<li>“书记、副书记如果不注意向自己的“一班人”作宣传工作和组织工作，不善于处理自己和委员之间的关系，不去研究怎样把会议开好，就很难把这“一班人”指挥好。如果这“一班人”动作不整齐，就休想带领千百万人去作战，去建设。”<ul>
+<li>强调组织的重要性，组织工作方法的重要性。</li>
+<li>个人理解的好的团队组织：步调一致，节奏和谐，如臂使指，团结活泼。</li>
 </ul>
-<p>&#160; &#160; &#160; &#160;Nginx相对Apache的优点：</p>
-<ul>
-<li>轻量级，比Apache 占用更少的内存及资源</li>
-<li>速度性能强于Apache（Nginx 处理请求是异步非阻塞的，而Apache 则是阻塞型I/O多线程的，在高并发下Nginx 能保持低资源低消耗高性能）</li>
-<li>负载均衡</li>
-<li>静态文件处理性能好</li>
+</li>
+<li>问题的解决要摆到桌面上来，讨论、结论、给出方案（规定）。“有问题而不摆到桌面上来，就会长期不得解决，甚至一拖几年。”<ul>
+<li>对待问题，绝不能藏着掖着。否则就是消极的态度，逃避的态度，视而不见的态度。</li>
 </ul>
-<h2 id="Lighttpd-Tomcat与其他"><a href="#Lighttpd-Tomcat与其他" class="headerlink" title="Lighttpd, Tomcat与其他"></a>Lighttpd, Tomcat与其他</h2><p>&#160; &#160; &#160; &#160;Lighttpd是一个来自德国的开源Web服务器软件，旨在提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销，cpu占用率低，效能好，以及丰富的模块等特点。</p>
-<p>&#160; &#160; &#160; &#160; Tomacat是Apache基金会提供的Servlet容器，实现了对Servlet（是用Java编写的服务器端程序。其主要功能在于交互式地浏览和修改数据，生成动态Web内容）和Java Server Page（JSP）的支持，并提供了作为Web服务器的一些特有功能。由于Tomcat本身也内含了一个HTTP服务器，它也可以被视作一个单独的Web服务器。但是，不能将Tomcat和Apache Web服务器混淆。（摘自Wikipedia）Tomcat是支持运行Servlet/JSP应用程序的容器。虽然Tomcat也可以认为是HTTP服务器，但通常它会和Nginx/Apache配合在一起使用。</p>
-<h2 id="主要参考资料"><a href="#主要参考资料" class="headerlink" title="主要参考资料"></a>主要参考资料</h2><p><a href="https://www.zhihu.com/question/32212996" target="_blank" rel="external">https://www.zhihu.com/question/32212996</a><br><a href="https://jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/" target="_blank" rel="external">https://jeffknupp.com/blog/2014/03/03/what-is-a-web-framework/</a><br><a href="https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations" target="_blank" rel="external">https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations</a></p>
+</li>
+<li>“互通情报”。强调信息的交流和情况的透明化。有了共同的认识、共同的语言、才能够达成意见一致、步调一致。<ul>
+<li>软件工程中的开发文档、公司的内部论坛等，就是“互通情报”的工具。</li>
+</ul>
+</li>
+<li>“要“不耻下问”，要善于倾听下面干部的意见。先做学生，然后再做先生；先向下面干部请教，然后再下命令。” 除了一些紧急情况需要当机立断、随机应变之外，都应该这么办。不仅无损于威信，反而增加威信。<ul>
+<li>在组织中上下层的沟通是一个很重要的问题。</li>
+</ul>
+</li>
+<li>学会“弹钢琴”，注意主次，注意节奏。要抓紧中心工作，又要围绕中心展开其他工作。“凡是有问题的地方都要点一下”。</li>
+<li>“抓而不紧，等于不抓。”<ul>
+<li>佯作抓状，或是欲抓而未能紧，都等于不抓。</li>
+<li>方向路线错误，不如不抓。</li>
+</ul>
+</li>
+<li>“要有基本的数量的分析”。<ul>
+<li>重视数据，数据是客观事实的放大镜。</li>
+<li>数据翔实完备，不仅有助于自己思考决断，也有助于为人信服，达成团队一致。</li>
+</ul>
+</li>
+<li>“开会要事先通知，像出安民告示一样，让大家知道要讨论什么问题，解决什么问题，并且早作准备。有些地方开干部会，事前不准备好报告和决议草案，等开会的人到了才临时凑合，好像“兵马已到，粮草未备”，这是不好的。如果没有准备，就不要急于开会。”<ul>
+<li>开会要有会前通知，通知要包括会议纲要，让与会者先有个准备。</li>
+<li>开会本身并不“解决”多少问题，开会的主要作用是达成一致（并使每个团队成员明确大家已达成一致），做出决策，协调步调。</li>
+<li>对于有不同意见的成员，以及遗留问题、个人思想问题，都要在会前“通气”，就算不能彻底解决，也要提前打招呼，提前沟通交流。</li>
+</ul>
+</li>
+<li>“精兵简政。讲话、演说、写文章和写决议案，都应当简明扼要。会议也不要开得太长。”<ul>
+<li>简洁和效率是孪生兄弟。</li>
+</ul>
+</li>
+<li>注意团结意见不同的同志。<ul>
+<li>主席有云，“政治就是把我们的人搞得多多的，把敌人搞得少少的。”</li>
+<li>所谓得道多助，仁者无敌。多一个朋友多一条路，多一个敌人多一堵墙。</li>
+<li>少树敌才能“活”的久（各种意义上）。</li>
+</ul>
+</li>
+<li>保持艰苦奋斗的作风。<ul>
+<li>不要躺在功劳簿上，对待事业的态度应是居安思危，焚膏继晷，任重而道远。</li>
+</ul>
+</li>
+<li>“我们看问题一定不要忘记划清这两种界限：革命和反革命的界限，成绩和缺点的界限。记着这两条界限，事情就好办，否则就会把问题的性质弄混淆了。”<ul>
+<li>两个界限，前者是有利于事业与否的界限，后者是个人的评判界限。</li>
+<li>有界限就有原则。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -423,9 +454,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Web-Server/" rel="tag">#Web Server</a>
+            <a href="/tags/读书/" rel="tag">#读书</a>
           
-            <a href="/tags/服务器/" rel="tag">#服务器</a>
+            <a href="/tags/团队组织/" rel="tag">#团队组织</a>
           
         </div>
       
@@ -434,17 +465,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/09/读《精进——如何成为一个很厉害的人》/" rel="next" title="读《精进——如何成为一个很厉害的人》">
-                <i class="fa fa-chevron-left"></i> 读《精进——如何成为一个很厉害的人》
+              <a href="/2016/09/24/Nginx and Apache——浅谈主流网页服务器/" rel="next" title="Apache和Nginx——浅谈主流Web服务器">
+                <i class="fa fa-chevron-left"></i> Apache和Nginx——浅谈主流Web服务器
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/28/读《党委会的工作方法》/" rel="prev" title="读《党委会的工作方法》">
-                读《党委会的工作方法》 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -493,8 +520,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/24/Nginx and Apache——浅谈主流网页服务器/"
-           data-title="Apache和Nginx——浅谈主流Web服务器" data-url="http://yoursite.com/2016/09/24/Nginx and Apache——浅谈主流网页服务器/">
+      <div class="ds-thread" data-thread-key="2016/11/28/读《党委会的工作方法》/"
+           data-title="读《党委会的工作方法》" data-url="http://yoursite.com/2016/11/28/读《党委会的工作方法》/">
       </div>
     
   </div>
@@ -614,7 +641,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-Framework-and-Web-Server"><span class="nav-text">Web Framework and Web Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache-vs-Nginx"><span class="nav-text">Apache vs Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接处理"><span class="nav-text">连接处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态与动态内容"><span class="nav-text">静态与动态内容</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lighttpd-Tomcat与其他"><span class="nav-text">Lighttpd, Tomcat与其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要参考资料"><span class="nav-text">主要参考资料</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
