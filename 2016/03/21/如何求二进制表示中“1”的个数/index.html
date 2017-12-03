@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="前言刚翻开《编程之美》， 中间就有一道我很眼熟的题，“求二进制中1的个数”。书中的题目描述如下：
-
-对于一个字节(8 bit)的无符号整型变量，求其二进制表示中“1”的个数，要求算法执行效率尽可能高。">
+<meta name="description" content="前言刚翻开《编程之美》， 中间就有一道我很眼熟的题，“求二进制中1的个数”。书中的题目描述如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何求二进制表示中“1”的个数">
 <meta property="og:url" content="http://yoursite.com/2016/03/21/如何求二进制表示中“1”的个数/index.html">
-<meta property="og:site_name" content="A.Z.Young's">
-<meta property="og:description" content="前言刚翻开《编程之美》， 中间就有一道我很眼熟的题，“求二进制中1的个数”。书中的题目描述如下：
-
-对于一个字节(8 bit)的无符号整型变量，求其二进制表示中“1”的个数，要求算法执行效率尽可能高。">
-<meta property="og:updated_time" content="2016-09-05T10:09:15.387Z">
+<meta property="og:site_name" content="YangZ's">
+<meta property="og:description" content="前言刚翻开《编程之美》， 中间就有一道我很眼熟的题，“求二进制中1的个数”。书中的题目描述如下：">
+<meta property="og:updated_time" content="2017-12-03T14:24:24.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何求二进制表示中“1”的个数">
-<meta name="twitter:description" content="前言刚翻开《编程之美》， 中间就有一道我很眼熟的题，“求二进制中1的个数”。书中的题目描述如下：
-
-对于一个字节(8 bit)的无符号整型变量，求其二进制表示中“1”的个数，要求算法执行效率尽可能高。">
+<meta name="twitter:description" content="前言刚翻开《编程之美》， 中间就有一道我很眼熟的题，“求二进制中1的个数”。书中的题目描述如下：">
 
 
 
@@ -112,7 +106,7 @@
     motion: true,
     duoshuo: {
       userId: 0,
-      author: '博主'
+      author: 'Author'
     }
   };
 </script>
@@ -122,10 +116,10 @@
 
   <link rel="canonical" href="http://yoursite.com/2016/03/21/如何求二进制表示中“1”的个数/"/>
 
-  <title> 如何求二进制表示中“1”的个数 | A.Z.Young's </title>
+  <title> 如何求二进制表示中“1”的个数 | YangZ's </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
 
@@ -161,7 +155,7 @@
     <div class="site-meta-headline">
       <a>
         <img class="custom-logo-image" src="http://www.downwithdesign.com/wp-content/uploads/2012/07/dark-knight-rises-batman-logo.png"
-             alt="A.Z.Young's"/>
+             alt="YangZ's"/>
       </a>
     </div>
   
@@ -169,7 +163,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">A.Z.Young's</span>
+      <span class="site-title">YangZ's</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -196,7 +190,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -206,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -216,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            About
           </a>
         </li>
       
@@ -226,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -236,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -289,7 +283,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">发表于</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-03-21T15:17:17+08:00" content="2016-03-21">
               2016-03-21
             </time>
@@ -301,7 +295,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/算法与数据结构/" itemprop="url" rel="index">
@@ -350,9 +344,11 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>刚翻开<a href="https://book.douban.com/subject/3004255/" target="_blank" rel="external">《编程之美》</a>， 中间就有一道我很眼熟的题，“求二进制中1的个数”。书中的题目描述如下：</p>
+<a id="more"></a>
 <blockquote>
-<p>对于一个字节(8 bit)的无符号整型变量，求其二进制表示中“1”的个数，要求算法执行效率尽可能高。<br><a id="more"></a><br>这当然是一道比较简单的题目，而我在LeetCode上也做过这道题——<br>Number of 1 Bits: <a href="https://leetcode.com/problems/number-of-1-bits/" target="_blank" rel="external">https://leetcode.com/problems/number-of-1-bits/</a><br>Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the <a href="https://en.wikipedia.org/wiki/Hamming_weight" target="_blank" rel="external">Hamming weight</a>).<br>For example, the 32-bit integer 11 has binary representation “00000000000000000000000000001011”, so the function should return 3.</p>
+<p>对于一个字节(8 bit)的无符号整型变量，求其二进制表示中“1”的个数，要求算法执行效率尽可能高。</p>
 </blockquote>
+<p>这当然是一道比较简单的题目，而我在LeetCode上也做过这道题——<br>Number of 1 Bits: <a href="https://leetcode.com/problems/number-of-1-bits/" target="_blank" rel="external">https://leetcode.com/problems/number-of-1-bits/</a><br>Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the <a href="https://en.wikipedia.org/wiki/Hamming_weight" target="_blank" rel="external">Hamming weight</a>).<br>For example, the 32-bit integer 11 has binary representation “00000000000000000000000000001011”, so the function should return 3.</p>
 <p>虽然题目本身，但鉴于此题十分经典，且做法较多，我们在此把（我所知道的）各种可能的方案都讨论一下。</p>
 <h2 id="分析与解答"><a href="#分析与解答" class="headerlink" title="分析与解答"></a>分析与解答</h2><p>首先想到的一种方案大概就是一直除以2然后统计，先给个例子：<br>对于10100010(bin)，值为162(Dec)，<br>第一次除以2，商1010001(81)，余0；<br>第二次除以2，商101000(40)，余1；<br>第三次除以2，商10100(20)，余0；<br>第四次除以2，商1010(10)，余0；<br>第五次除以2，商101(5)，余0；<br>第六次除以2，商10(2)，余1；<br>第七次除以2，商1，余0；<br>第八次除以2，商0，余1；<br>我们注意到，将数字不断除以2，其实就是不断从最低位开始“丢弃”，如果最低位为1，再除以2的时候就余1，否则余0。那么我们就可以通过<strong>不断除以2，并判断模2的值</strong>来统计一共有多少个“1”了。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">hammingWeight</span><span class="params">(<span class="keyword">uint32_t</span> n)</span> </span>&#123;</div><div class="line">      <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">      <span class="keyword">while</span> (n) &#123;</div><div class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">1</span>) &#123;</div><div class="line">          count++;</div><div class="line">        &#125;</div><div class="line">        n /= <span class="number">2</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
@@ -392,13 +388,13 @@
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/WCreward.png" alt="Allen.Z.Young WeChat Pay"/>
+          <img id="wechat_qr" src="/images/WCreward.png" alt="YangZ WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/ZFBrew.jpg" alt="Allen.Z.Young Alipay"/>
+          <img id="alipay_qr" src="/images/ZFBrew.jpg" alt="YangZ Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -510,10 +506,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -522,15 +518,15 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
-               alt="Allen.Z.Young" />
-          <p class="site-author-name" itemprop="name">Allen.Z.Young</p>
+               alt="YangZ" />
+          <p class="site-author-name" itemprop="name">YangZ</p>
           <p class="site-description motion-element" itemprop="description">All in or nothing.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">13</span>
-              <span class="site-state-item-name">日志</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -538,7 +534,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">分类</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -547,7 +543,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -627,15 +623,15 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Allen.Z.Young</span>
+  <span class="author" itemprop="copyrightHolder">YangZ</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主题 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
