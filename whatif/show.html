@@ -22,6 +22,22 @@
 </style>
 
 <body>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <div id="myDiv" style="width:700px;height:350px;">
+    <script>
+        var data = [
+            {
+                z: [[0.31, 0.20, 0.30, 0.50, 0.1], [0.20, 0.1, 0.60, 0.80, 0.30], [0.30, 0.60, 0.1, -0.10, 0.20]],
+                x: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                y: ['Morning', 'Afternoon', 'Evening'],
+                type: 'heatmap'
+            }
+        ];
+
+        Plotly.newPlot('myDiv', data);
+        Plotly.newPlot('myDiv', data);
+    </script>
+    </div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
     <script>
@@ -411,69 +427,69 @@
 
         var colors = {
             "Arsenal": "#da4480"
-            , "Aston Villa": "#5ab449"
-            , "Bournemouth": "#7f5acd"
-            , "Chelsea": "#aab740"
-            , "Crystal Palace": "#ce58c0"
-            , "Everton": "#50a26e"
-            , "Leicester City": "#d1434b"
-            , "Liverpool": "#45c0bc"
-            , "Manchester City": "#ce5929"
-            , "Manchester Utd": "#4e7bda"
-            , "Newcastle Utd": "#d49d3c"
-            , "Norwich City": "#6660a3"
-            , "Southampton": "#7b853c"
-            , "Stoke City": "#b58dde"
-            , "Sunderland": "#97622e"
-            , "Swansea City": "#609dd6"
-            , "Tottenham": "#e29074"
-            , "Watford": "#9c4b88"
-            , "West Bromwich": "#ab505f"
-            , "West Ham Utd": "#dc85b6"
-        };
+        , "Aston Villa": "#5ab449"
+        , "Bournemouth": "#7f5acd"
+        , "Chelsea": "#aab740"
+        , "Crystal Palace": "#ce58c0"
+        , "Everton": "#50a26e"
+        , "Leicester City": "#d1434b"
+        , "Liverpool": "#45c0bc"
+        , "Manchester City": "#ce5929"
+        , "Manchester Utd": "#4e7bda"
+        , "Newcastle Utd": "#d49d3c"
+        , "Norwich City": "#6660a3"
+        , "Southampton": "#7b853c"
+        , "Stoke City": "#b58dde"
+        , "Sunderland": "#97622e"
+        , "Swansea City": "#609dd6"
+        , "Tottenham": "#e29074"
+        , "Watford": "#9c4b88"
+        , "West Bromwich": "#ab505f"
+        , "West Ham Utd": "#dc85b6"
+    };
 
-        var sortOrder = [
-            "Arsenal"
-            , "Aston Villa"
-            , "Bournemouth"
-            , "Chelsea"
-            , "Crystal Palace"
-            , "Everton"
-            , "Leicester City"
-            , "Liverpool"
-            , "Manchester City"
-            , "Manchester Utd"
-            , "Newcastle Utd"
-            , "Norwich City"
-            , "Southampton"
-            , "Stoke City"
-            , "Sunderland"
-            , "Swansea City"
-            , "Tottenham"
-            , "Watford"
-            , "West Bromwich"
-            , "West Ham Utd"
-        ];
+    var sortOrder = [
+        "Arsenal"
+        , "Aston Villa"
+        , "Bournemouth"
+        , "Chelsea"
+        , "Crystal Palace"
+        , "Everton"
+        , "Leicester City"
+        , "Liverpool"
+        , "Manchester City"
+        , "Manchester Utd"
+        , "Newcastle Utd"
+        , "Norwich City"
+        , "Southampton"
+        , "Stoke City"
+        , "Sunderland"
+        , "Swansea City"
+        , "Tottenham"
+        , "Watford"
+        , "West Bromwich"
+        , "West Ham Utd"
+    ];
 
         function sort(a, b) { return d3.ascending(sortOrder.indexOf(a), sortOrder.indexOf(b)); }
 
         var ch = viz.ch().data(data)
             .padding(.01)
             .sort(sort)
-            .innerRadius(430)
-            .outerRadius(450)
+            .innerRadius(270)
+            .outerRadius(290)
             .duration(1000)
             .chordOpacity(0.3)
             .labelPadding(.03)
             .fill(function (d) { return colors[d]; });
 
-        var width = 1200, height = 1100;
+    var width = 1000, height = 1000;
 
-        var svg = d3.select("body").append("svg").attr("height", height).attr("width", width);
+    var svg = d3.select("body").append("svg").attr("height", height).attr("width", width);
 
-        svg.append("g").attr("transform", "translate(600,550)").call(ch);
+    svg.append("g").attr("transform", "translate(600,550)").call(ch);
 
-        // adjust height of frame in bl.ocks.org
-        d3.select(self.frameElement).style("height", height + "px").style("width", width + "px");     
+    // adjust height of frame in bl.ocks.org
+    d3.select(self.frameElement).style("height", height + "px").style("width", width + "px");     
     </script>
     LICENSE
