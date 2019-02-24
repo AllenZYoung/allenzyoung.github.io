@@ -23,453 +23,166 @@
 
 <body>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <div id="myDiv" style="width:700px;height:350px;">
-    <script>
-        var data = [
-            {
-                z: [[0.31, 0.20, 0.30, 0.50, 0.1], [0.20, 0.1, 0.60, 0.80, 0.30], [0.30, 0.60, 0.1, -0.10, 0.20]],
-                x: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-                y: ['Morning', 'Afternoon', 'Evening'],
-                type: 'heatmap'
-            }
-        ];
-
-        Plotly.newPlot('myDiv', data);
-        Plotly.newPlot('myDiv', data);
-    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <div class="row">
+        <div class=".col-xs-6" id="myDiv1" style="width:600px;height:600px;"></div>
+        <div class=".col-xs-6" id="myDiv2" style="width:600px;height:600px;"></div>
     </div>
+    <script>
+        Plotly.d3.json('https://raw.githubusercontent.com/plotly/datasets/master/custom_heatmap_colorscale.json', function (figure) {
+            var data = [
+                {
+                    z: [[0.0, 0.1787890902420903, 0.14941471322125455, 0.048848083776572904, 0.08321803620816695, 0.20727647731643606, 0.037414596877983354, 0.12280401457187005, 0.0635287873177645], [0.1787890902420903, 0.0, 0.13157592929484715, 0.05349018222101478, 0.047107564672184715, 0.13902357029543355, 0.04302720420286471, 0.0551117805918617, 0.07763193795289365], [0.14941471322125455, 0.13157592929484715, 0.0, 0.06283546979558355, 0.035463687353795285, 0.1259012921193426, 0.037063297144596496, 0.08104608097991649, 0.08558331582856063], [0.048848083776572904, 0.053490182221014794, 0.06283546979558355, 0.0, 0.0025300221012361825, 0.13848641036867002, 0.100623692556181, 0.024812453502264853, 0.08912558055900315], [0.08321803620816695, 0.047107564672184715, 0.03546368735379529, 0.002530022101236183, 0.0, 0.0739550426297438, 0.009279497776237142, 0.04756363758616193, 0.013847095614818658], [0.20727647731643606, 0.13902357029543358, 0.1259012921193426, 0.13848641036867002, 0.0739550426297438, 0.0, 0.105463978430365, 0.16326575738447882, 0.11078933065693508], [0.03741459687798336, 0.04302720420286471, 0.037063297144596496, 0.100623692556181, 0.009279497776237143, 0.105463978430365, 0.0, 0.020137828127258485, 0.06138695085526457], [0.12280401457187005, 0.055111780591861705, 0.08104608097991647, 0.024812453502264853, 0.04756363758616193, 0.16326575738447882, 0.020137828127258485, 0.0, 0.03698480878644211], [0.0635287873177645, 0.07763193795289365, 0.08558331582856063, 0.08912558055900315, 0.013847095614818658, 0.11078933065693508, 0.06138695085526457, 0.0369848087864421, 0.0]],
+                    x: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
+                    y: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
+                    type: 'heatmap',
+                    colorscale: 'YIOrRd'
+                }
+            ];
+            var layout1 = { title: 'Questionare' };
+            Plotly.newPlot('myDiv1', data, layout1);
+        });
+        Plotly.d3.json('https://raw.githubusercontent.com/plotly/datasets/master/custom_heatmap_colorscale.json', function (figure) {
+            var data2 = [
+                {
+                    z: [[0.0, 0.003453476820141077, 0.00599652761593461, 0.0, 0.0018571378896012902, 0.0005431466270238161, 0.00012029713252559304, 0.0006569725810550153, 0.0007955996552482247], [0.003453476820141077, 0.0, 0.01874319277703762, 3.358538378961384e-05, 0.0003978930471930653, 0.0008672940894030035, 0.0006014785030856729, 0.002004509326070547, 0.002826100680977106], [0.00599652761593461, 0.01874319277703762, 0.0, 1.6786269043223e-05, 0.0006976763252168894, 0.003961279988288879, 0.0003965772339142859, 0.001433481345884502, 0.001166240661405027], [0.0, 3.358538378961384e-05, 1.6786269043223e-05, 0.0, 0.0, 1.0599733286653645e-05, 0.0, 2.27324130719353e-06, 6.380127888405696e-05], [0.0018571378896012902, 0.0003978930471930653, 0.0006976763252168894, 0.0, 0.0, 7.214263314381242e-05, 7.41628828109242e-05, 1.9263696231064387e-05, 0.00020117081294301897], [0.0005431466270238161, 0.0008672940894030035, 0.003961279988288879, 1.0599733286653645e-05, 7.214263314381242e-05, 0.0, 0.00046544100041501224, 0.00025989607092924416, 0.005992067512124777], [0.00012029713252559304, 0.0006014785030856729, 0.0003965772339142859, 0.0, 7.41628828109242e-05, 0.00046544100041501224, 0.0, 0.0001065453325281851, 0.0035565474536269903], [0.0006569725810550153, 0.002004509326070547, 0.001433481345884502, 2.27324130719353e-06, 1.9263696231064387e-05, 0.00025989607092924416, 0.0001065453325281851, 0.0, 0.0011920379474759102], [0.0007955996552482247, 0.002826100680977106, 0.001166240661405027, 6.380127888405696e-05, 0.00020117081294301897, 0.005992067512124777, 0.0035565474536269903, 0.0011920379474759102, 0.0]],
+                    x: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
+
+                    y: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
+                    type: 'heatmap',
+                    colorscale: 'YIOrRd'
+                }
+            ];
+            var layout2 = { title: 'PubMed' };
+            Plotly.newPlot('myDiv2', data2, layout2);
+        });
+    </script>
+
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
     <script>
 
-        var data = [
-            ['Arsenal', 'Aston Villa', 6]
-            , ['Arsenal', 'Bournemouth', 4]
-            , ['Arsenal', 'Chelsea', 0]
-            , ['Arsenal', 'Crystal Palace', 3]
-            , ['Arsenal', 'Everton', 4]
-            , ['Arsenal', 'Leicester City', 7]
-            , ['Arsenal', 'Liverpool', 3]
-            , ['Arsenal', 'Manchester City', 4]
-            , ['Arsenal', 'Manchester Utd', 5]
-            , ['Arsenal', 'Newcastle Utd', 2]
-            , ['Arsenal', 'Norwich City', 2]
-            , ['Arsenal', 'Southampton', 0]
-            , ['Arsenal', 'Stoke City', 2]
-            , ['Arsenal', 'Sunderland', 3]
-            , ['Arsenal', 'Swansea City', 4]
-            , ['Arsenal', 'Tottenham', 3]
-            , ['Arsenal', 'Watford', 7]
-            , ['Arsenal', 'West Bromwich', 3]
-            , ['Arsenal', 'West Ham Utd', 3]
-            , ['Aston Villa', 'Arsenal', 0]
-            , ['Aston Villa', 'Bournemouth', 2]
-            , ['Aston Villa', 'Chelsea', 0]
-            , ['Aston Villa', 'Crystal Palace', 2]
-            , ['Aston Villa', 'Everton', 1]
-            , ['Aston Villa', 'Leicester City', 3]
-            , ['Aston Villa', 'Liverpool', 2]
-            , ['Aston Villa', 'Manchester City', 0]
-            , ['Aston Villa', 'Manchester Utd', 0]
-            , ['Aston Villa', 'Newcastle Utd', 1]
-            , ['Aston Villa', 'Norwich City', 2]
-            , ['Aston Villa', 'Southampton', 3]
-            , ['Aston Villa', 'Stoke City', 1]
-            , ['Aston Villa', 'Sunderland', 3]
-            , ['Aston Villa', 'Swansea City', 1]
-            , ['Aston Villa', 'Tottenham', 1]
-            , ['Aston Villa', 'Watford', 4]
-            , ['Aston Villa', 'West Bromwich', 0]
-            , ['Aston Villa', 'West Ham Utd', 1]
-            , ['Bournemouth', 'Arsenal', 0]
-            , ['Bournemouth', 'Aston Villa', 2]
-            , ['Bournemouth', 'Chelsea', 2]
-            , ['Bournemouth', 'Crystal Palace', 2]
-            , ['Bournemouth', 'Everton', 4]
-            , ['Bournemouth', 'Leicester City', 1]
-            , ['Bournemouth', 'Liverpool', 1]
-            , ['Bournemouth', 'Manchester City', 1]
-            , ['Bournemouth', 'Manchester Utd', 3]
-            , ['Bournemouth', 'Newcastle Utd', 3]
-            , ['Bournemouth', 'Norwich City', 4]
-            , ['Bournemouth', 'Southampton', 2]
-            , ['Bournemouth', 'Stoke City', 2]
-            , ['Bournemouth', 'Sunderland', 3]
-            , ['Bournemouth', 'Swansea City', 5]
-            , ['Bournemouth', 'Tottenham', 1]
-            , ['Bournemouth', 'Watford', 1]
-            , ['Bournemouth', 'West Bromwich', 3]
-            , ['Bournemouth', 'West Ham Utd', 5]
-            , ['Chelsea', 'Arsenal', 3]
-            , ['Chelsea', 'Aston Villa', 6]
-            , ['Chelsea', 'Bournemouth', 4]
-            , ['Chelsea', 'Crystal Palace', 4]
-            , ['Chelsea', 'Everton', 4]
-            , ['Chelsea', 'Leicester City', 2]
-            , ['Chelsea', 'Liverpool', 2]
-            , ['Chelsea', 'Manchester City', 0]
-            , ['Chelsea', 'Manchester Utd', 1]
-            , ['Chelsea', 'Newcastle Utd', 7]
-            , ['Chelsea', 'Norwich City', 3]
-            , ['Chelsea', 'Southampton', 3]
-            , ['Chelsea', 'Stoke City', 1]
-            , ['Chelsea', 'Sunderland', 5]
-            , ['Chelsea', 'Swansea City', 2]
-            , ['Chelsea', 'Tottenham', 2]
-            , ['Chelsea', 'Watford', 2]
-            , ['Chelsea', 'West Bromwich', 5]
-            , ['Chelsea', 'West Ham Utd', 3]
-            , ['Crystal Palace', 'Arsenal', 2]
-            , ['Crystal Palace', 'Aston Villa', 2]
-            , ['Crystal Palace', 'Bournemouth', 1]
-            , ['Crystal Palace', 'Chelsea', 2]
-            , ['Crystal Palace', 'Everton', 1]
-            , ['Crystal Palace', 'Leicester City', 0]
-            , ['Crystal Palace', 'Liverpool', 3]
-            , ['Crystal Palace', 'Manchester City', 0]
-            , ['Crystal Palace', 'Manchester Utd', 0]
-            , ['Crystal Palace', 'Newcastle Utd', 5]
-            , ['Crystal Palace', 'Norwich City', 4]
-            , ['Crystal Palace', 'Southampton', 2]
-            , ['Crystal Palace', 'Stoke City', 4]
-            , ['Crystal Palace', 'Sunderland', 2]
-            , ['Crystal Palace', 'Swansea City', 1]
-            , ['Crystal Palace', 'Tottenham', 1]
-            , ['Crystal Palace', 'Watford', 2]
-            , ['Crystal Palace', 'West Bromwich', 4]
-            , ['Crystal Palace', 'West Ham Utd', 3]
-            , ['Everton', 'Arsenal', 1]
-            , ['Everton', 'Aston Villa', 7]
-            , ['Everton', 'Bournemouth', 5]
-            , ['Everton', 'Chelsea', 6]
-            , ['Everton', 'Crystal Palace', 1]
-            , ['Everton', 'Leicester City', 3]
-            , ['Everton', 'Liverpool', 1]
-            , ['Everton', 'Manchester City', 0]
-            , ['Everton', 'Manchester Utd', 0]
-            , ['Everton', 'Newcastle Utd', 4]
-            , ['Everton', 'Norwich City', 4]
-            , ['Everton', 'Southampton', 4]
-            , ['Everton', 'Stoke City', 6]
-            , ['Everton', 'Sunderland', 6]
-            , ['Everton', 'Swansea City', 1]
-            , ['Everton', 'Tottenham', 1]
-            , ['Everton', 'Watford', 3]
-            , ['Everton', 'West Bromwich', 3]
-            , ['Everton', 'West Ham Utd', 3]
-            , ['Leicester City', 'Arsenal', 3]
-            , ['Leicester City', 'Aston Villa', 4]
-            , ['Leicester City', 'Bournemouth', 1]
-            , ['Leicester City', 'Chelsea', 3]
-            , ['Leicester City', 'Crystal Palace', 2]
-            , ['Leicester City', 'Everton', 15]
-            , ['Leicester City', 'Liverpool', 2]
-            , ['Leicester City', 'Manchester City', 3]
-            , ['Leicester City', 'Manchester Utd', 2]
-            , ['Leicester City', 'Newcastle Utd', 4]
-            , ['Leicester City', 'Norwich City', 3]
-            , ['Leicester City', 'Southampton', 3]
-            , ['Leicester City', 'Stoke City', 5]
-            , ['Leicester City', 'Sunderland', 6]
-            , ['Leicester City', 'Swansea City', 7]
-            , ['Leicester City', 'Tottenham', 2]
-            , ['Leicester City', 'Watford', 3]
-            , ['Leicester City', 'West Bromwich', 5]
-            , ['Leicester City', 'West Ham Utd', 4]
-            , ['Liverpool', 'Arsenal', 3]
-            , ['Liverpool', 'Aston Villa', 9]
-            , ['Liverpool', 'Bournemouth', 3]
-            , ['Liverpool', 'Chelsea', 4]
-            , ['Liverpool', 'Crystal Palace', 3]
-            , ['Liverpool', 'Everton', 5]
-            , ['Liverpool', 'Leicester City', 1]
-            , ['Liverpool', 'Manchester City', 7]
-            , ['Liverpool', 'Manchester Utd', 1]
-            , ['Liverpool', 'Newcastle Utd', 2]
-            , ['Liverpool', 'Norwich City', 6]
-            , ['Liverpool', 'Southampton', 3]
-            , ['Liverpool', 'Stoke City', 5]
-            , ['Liverpool', 'Sunderland', 3]
-            , ['Liverpool', 'Swansea City', 2]
-            , ['Liverpool', 'Tottenham', 1]
-            , ['Liverpool', 'Watford', 2]
-            , ['Liverpool', 'West Bromwich', 3]
-            , ['Liverpool', 'West Ham Utd', 0]
-            , ['Manchester City', 'Arsenal', 3]
-            , ['Manchester City', 'Aston Villa', 4]
-            , ['Manchester City', 'Bournemouth', 9]
-            , ['Manchester City', 'Chelsea', 6]
-            , ['Manchester City', 'Crystal Palace', 5]
-            , ['Manchester City', 'Everton', 2]
-            , ['Manchester City', 'Leicester City', 1]
-            , ['Manchester City', 'Liverpool', 1]
-            , ['Manchester City', 'Manchester Utd', 0]
-            , ['Manchester City', 'Newcastle Utd', 7]
-            , ['Manchester City', 'Norwich City', 2]
-            , ['Manchester City', 'Southampton', 5]
-            , ['Manchester City', 'Stoke City', 4]
-            , ['Manchester City', 'Sunderland', 5]
-            , ['Manchester City', 'Swansea City', 3]
-            , ['Manchester City', 'Tottenham', 2]
-            , ['Manchester City', 'Watford', 4]
-            , ['Manchester City', 'West Bromwich', 5]
-            , ['Manchester City', 'West Ham Utd', 3]
-            , ['Manchester Utd', 'Arsenal', 3]
-            , ['Manchester Utd', 'Aston Villa', 2]
-            , ['Manchester Utd', 'Bournemouth', 4]
-            , ['Manchester Utd', 'Chelsea', 1]
-            , ['Manchester Utd', 'Crystal Palace', 2]
-            , ['Manchester Utd', 'Everton', 4]
-            , ['Manchester Utd', 'Leicester City', 2]
-            , ['Manchester Utd', 'Liverpool', 4]
-            , ['Manchester Utd', 'Manchester City', 1]
-            , ['Manchester Utd', 'Newcastle Utd', 3]
-            , ['Manchester Utd', 'Norwich City', 2]
-            , ['Manchester Utd', 'Southampton', 3]
-            , ['Manchester Utd', 'Stoke City', 3]
-            , ['Manchester Utd', 'Sunderland', 4]
-            , ['Manchester Utd', 'Swansea City', 3]
-            , ['Manchester Utd', 'Tottenham', 1]
-            , ['Manchester Utd', 'Watford', 3]
-            , ['Manchester Utd', 'West Bromwich', 2]
-            , ['Manchester Utd', 'West Ham Utd', 2]
-            , ['Newcastle Utd', 'Arsenal', 0]
-            , ['Newcastle Utd', 'Aston Villa', 1]
-            , ['Newcastle Utd', 'Bournemouth', 2]
-            , ['Newcastle Utd', 'Chelsea', 3]
-            , ['Newcastle Utd', 'Crystal Palace', 2]
-            , ['Newcastle Utd', 'Everton', 0]
-            , ['Newcastle Utd', 'Leicester City', 0]
-            , ['Newcastle Utd', 'Liverpool', 4]
-            , ['Newcastle Utd', 'Manchester City', 2]
-            , ['Newcastle Utd', 'Manchester Utd', 3]
-            , ['Newcastle Utd', 'Norwich City', 8]
-            , ['Newcastle Utd', 'Southampton', 3]
-            , ['Newcastle Utd', 'Stoke City', 0]
-            , ['Newcastle Utd', 'Sunderland', 1]
-            , ['Newcastle Utd', 'Swansea City', 3]
-            , ['Newcastle Utd', 'Tottenham', 7]
-            , ['Newcastle Utd', 'Watford', 2]
-            , ['Newcastle Utd', 'West Bromwich', 1]
-            , ['Newcastle Utd', 'West Ham Utd', 2]
-            , ['Norwich City', 'Arsenal', 1]
-            , ['Norwich City', 'Aston Villa', 2]
-            , ['Norwich City', 'Bournemouth', 3]
-            , ['Norwich City', 'Chelsea', 1]
-            , ['Norwich City', 'Crystal Palace', 1]
-            , ['Norwich City', 'Everton', 1]
-            , ['Norwich City', 'Leicester City', 1]
-            , ['Norwich City', 'Liverpool', 5]
-            , ['Norwich City', 'Manchester City', 1]
-            , ['Norwich City', 'Manchester Utd', 2]
-            , ['Norwich City', 'Newcastle Utd', 5]
-            , ['Norwich City', 'Southampton', 1]
-            , ['Norwich City', 'Stoke City', 2]
-            , ['Norwich City', 'Sunderland', 3]
-            , ['Norwich City', 'Swansea City', 1]
-            , ['Norwich City', 'Tottenham', 0]
-            , ['Norwich City', 'Watford', 4]
-            , ['Norwich City', 'West Bromwich', 1]
-            , ['Norwich City', 'West Ham Utd', 4]
-            , ['Southampton', 'Arsenal', 4]
-            , ['Southampton', 'Aston Villa', 5]
-            , ['Southampton', 'Bournemouth', 2]
-            , ['Southampton', 'Chelsea', 4]
-            , ['Southampton', 'Crystal Palace', 4]
-            , ['Southampton', 'Everton', 1]
-            , ['Southampton', 'Leicester City', 2]
-            , ['Southampton', 'Liverpool', 4]
-            , ['Southampton', 'Manchester City', 5]
-            , ['Southampton', 'Manchester Utd', 3]
-            , ['Southampton', 'Newcastle Utd', 5]
-            , ['Southampton', 'Norwich City', 3]
-            , ['Southampton', 'Stoke City', 2]
-            , ['Southampton', 'Sunderland', 2]
-            , ['Southampton', 'Swansea City', 4]
-            , ['Southampton', 'Tottenham', 2]
-            , ['Southampton', 'Watford', 2]
-            , ['Southampton', 'West Bromwich', 3]
-            , ['Southampton', 'West Ham Utd', 2]
-            , ['Stoke City', 'Arsenal', 0]
-            , ['Stoke City', 'Aston Villa', 3]
-            , ['Stoke City', 'Bournemouth', 5]
-            , ['Stoke City', 'Chelsea', 2]
-            , ['Stoke City', 'Crystal Palace', 2]
-            , ['Stoke City', 'Everton', 4]
-            , ['Stoke City', 'Leicester City', 2]
-            , ['Stoke City', 'Liverpool', 1]
-            , ['Stoke City', 'Manchester City', 2]
-            , ['Stoke City', 'Manchester Utd', 2]
-            , ['Stoke City', 'Newcastle Utd', 1]
-            , ['Stoke City', 'Norwich City', 4]
-            , ['Stoke City', 'Southampton', 2]
-            , ['Stoke City', 'Sunderland', 1]
-            , ['Stoke City', 'Swansea City', 3]
-            , ['Stoke City', 'Tottenham', 2]
-            , ['Stoke City', 'Watford', 2]
-            , ['Stoke City', 'West Bromwich', 1]
-            , ['Stoke City', 'West Ham Utd', 2]
-            , ['Sunderland', 'Arsenal', 1]
-            , ['Sunderland', 'Aston Villa', 5]
-            , ['Sunderland', 'Bournemouth', 1]
-            , ['Sunderland', 'Chelsea', 4]
-            , ['Sunderland', 'Crystal Palace', 3]
-            , ['Sunderland', 'Everton', 5]
-            , ['Sunderland', 'Leicester City', 2]
-            , ['Sunderland', 'Liverpool', 2]
-            , ['Sunderland', 'Manchester City', 1]
-            , ['Sunderland', 'Manchester Utd', 2]
-            , ['Sunderland', 'Newcastle Utd', 4]
-            , ['Sunderland', 'Norwich City', 4]
-            , ['Sunderland', 'Southampton', 1]
-            , ['Sunderland', 'Stoke City', 3]
-            , ['Sunderland', 'Swansea City', 5]
-            , ['Sunderland', 'Tottenham', 1]
-            , ['Sunderland', 'Watford', 2]
-            , ['Sunderland', 'West Bromwich', 0]
-            , ['Sunderland', 'West Ham Utd', 2]
-            , ['Swansea City', 'Arsenal', 2]
-            , ['Swansea City', 'Aston Villa', 3]
-            , ['Swansea City', 'Bournemouth', 4]
-            , ['Swansea City', 'Chelsea', 3]
-            , ['Swansea City', 'Crystal Palace', 1]
-            , ['Swansea City', 'Everton', 2]
-            , ['Swansea City', 'Leicester City', 0]
-            , ['Swansea City', 'Liverpool', 3]
-            , ['Swansea City', 'Manchester City', 2]
-            , ['Swansea City', 'Manchester Utd', 3]
-            , ['Swansea City', 'Newcastle Utd', 2]
-            , ['Swansea City', 'Norwich City', 1]
-            , ['Swansea City', 'Southampton', 1]
-            , ['Swansea City', 'Stoke City', 2]
-            , ['Swansea City', 'Sunderland', 3]
-            , ['Swansea City', 'Tottenham', 3]
-            , ['Swansea City', 'Watford', 1]
-            , ['Swansea City', 'West Bromwich', 2]
-            , ['Swansea City', 'West Ham Utd', 4]
-            , ['Tottenham', 'Arsenal', 3]
-            , ['Tottenham', 'Aston Villa', 5]
-            , ['Tottenham', 'Bournemouth', 8]
-            , ['Tottenham', 'Chelsea', 2]
-            , ['Tottenham', 'Crystal Palace', 4]
-            , ['Tottenham', 'Everton', 1]
-            , ['Tottenham', 'Leicester City', 1]
-            , ['Tottenham', 'Liverpool', 1]
-            , ['Tottenham', 'Manchester City', 6]
-            , ['Tottenham', 'Manchester Utd', 3]
-            , ['Tottenham', 'Newcastle Utd', 2]
-            , ['Tottenham', 'Norwich City', 6]
-            , ['Tottenham', 'Southampton', 3]
-            , ['Tottenham', 'Stoke City', 6]
-            , ['Tottenham', 'Sunderland', 5]
-            , ['Tottenham', 'Swansea City', 4]
-            , ['Tottenham', 'Watford', 3]
-            , ['Tottenham', 'West Bromwich', 2]
-            , ['Tottenham', 'West Ham Utd', 4]
-            , ['Watford', 'Arsenal', 0]
-            , ['Watford', 'Aston Villa', 6]
-            , ['Watford', 'Bournemouth', 1]
-            , ['Watford', 'Chelsea', 2]
-            , ['Watford', 'Crystal Palace', 2]
-            , ['Watford', 'Everton', 3]
-            , ['Watford', 'Leicester City', 1]
-            , ['Watford', 'Liverpool', 3]
-            , ['Watford', 'Manchester City', 1]
-            , ['Watford', 'Manchester Utd', 1]
-            , ['Watford', 'Newcastle Utd', 4]
-            , ['Watford', 'Norwich City', 4]
-            , ['Watford', 'Southampton', 0]
-            , ['Watford', 'Stoke City', 3]
-            , ['Watford', 'Sunderland', 3]
-            , ['Watford', 'Swansea City', 1]
-            , ['Watford', 'Tottenham', 1]
-            , ['Watford', 'West Bromwich', 1]
-            , ['Watford', 'West Ham Utd', 3]
-            , ['West Bromwich', 'Arsenal', 2]
-            , ['West Bromwich', 'Aston Villa', 1]
-            , ['West Bromwich', 'Bournemouth', 2]
-            , ['West Bromwich', 'Chelsea', 4]
-            , ['West Bromwich', 'Crystal Palace', 3]
-            , ['West Bromwich', 'Everton', 3]
-            , ['West Bromwich', 'Leicester City', 4]
-            , ['West Bromwich', 'Liverpool', 3]
-            , ['West Bromwich', 'Manchester City', 1]
-            , ['West Bromwich', 'Manchester Utd', 1]
-            , ['West Bromwich', 'Newcastle Utd', 1]
-            , ['West Bromwich', 'Norwich City', 1]
-            , ['West Bromwich', 'Southampton', 0]
-            , ['West Bromwich', 'Stoke City', 3]
-            , ['West Bromwich', 'Sunderland', 1]
-            , ['West Bromwich', 'Swansea City', 1]
-            , ['West Bromwich', 'Tottenham', 2]
-            , ['West Bromwich', 'Watford', 0]
-            , ['West Bromwich', 'West Ham Utd', 1]
-            , ['West Ham Utd', 'Arsenal', 5]
-            , ['West Ham Utd', 'Aston Villa', 3]
-            , ['West Ham Utd', 'Bournemouth', 6]
-            , ['West Ham Utd', 'Chelsea', 4]
-            , ['West Ham Utd', 'Crystal Palace', 5]
-            , ['West Ham Utd', 'Everton', 4]
-            , ['West Ham Utd', 'Leicester City', 3]
-            , ['West Ham Utd', 'Liverpool', 5]
-            , ['West Ham Utd', 'Manchester City', 4]
-            , ['West Ham Utd', 'Manchester Utd', 3]
-            , ['West Ham Utd', 'Newcastle Utd', 3]
-            , ['West Ham Utd', 'Norwich City', 4]
-            , ['West Ham Utd', 'Southampton', 2]
-            , ['West Ham Utd', 'Stoke City', 1]
-            , ['West Ham Utd', 'Sunderland', 3]
-            , ['West Ham Utd', 'Swansea City', 1]
-            , ['West Ham Utd', 'Tottenham', 2]
-            , ['West Ham Utd', 'Watford', 3]
-            , ['West Ham Utd', 'West Bromwich', 4]
-        ];
+        var data = [['cholesterol', 'cholesterol', 0.0],
+        ['cholesterol', 'diabetes', 0.10948940790956525],
+        ['cholesterol', 'cardiovascular', 0.12256179572686601],
+        ['cholesterol', 'sleep disorder', 0.04407832680039861],
+        ['cholesterol', 'high blood', 0.00172670594286857],
+        ['cholesterol', 'arthritis', 0.008097067966926691],
+        ['cholesterol', 'asthma', 0.09164291502197484],
+        ['cholesterol', 'cancer', 0.09443846212959987],
+        ['cholesterol', 'blind', 0.06072552953413249],
+        ['diabetes', 'cholesterol', 0.23065822785466467],
+        ['diabetes', 'diabetes', 0.0],
+        ['diabetes', 'cardiovascular', 0.12870180245486748],
+        ['diabetes', 'sleep disorder', 0.02796875870772845],
+        ['diabetes', 'high blood', 0.21609056158750384],
+        ['diabetes', 'arthritis', 0.16739780534639784],
+        ['diabetes', 'asthma', 0.04216640268647695],
+        ['diabetes', 'cancer', 0.48325433514076876],
+        ['diabetes', 'blind', 0.10245189967813725],
+        ['cardiovascular', 'cholesterol', 0.07417822893414958],
+        ['cardiovascular', 'diabetes', 0.09559908778050111],
+        ['cardiovascular', 'cardiovascular', 0.0],
+        ['cardiovascular', 'sleep disorder', 0.01306385108941474],
+        ['cardiovascular', 'high blood', 0.036625221197846496],
+        ['cardiovascular', 'arthritis', 0.0207061947765963],
+        ['cardiovascular', 'asthma', 0.07385029487686492],
+        ['cardiovascular', 'cancer', 0.01063218603518891],
+        ['cardiovascular', 'blind', 0.11362184519869244],
+        ['sleep disorder', 'cholesterol', 0.09031786485741028],
+        ['sleep disorder', 'diabetes', 0.09735014034625881],
+        ['sleep disorder', 'cardiovascular', 0.11607923594356069],
+        ['sleep disorder', 'sleep disorder', 0.0],
+        ['sleep disorder', 'high blood', 0.6633878288687088],
+        ['sleep disorder', 'arthritis', 0.26093752358086664],
+        ['sleep disorder', 'asthma', 0.1880009401720679],
+        ['sleep disorder', 'cancer', 0.2576255311530233],
+        ['sleep disorder', 'blind', 0.168327655121568],
+        ['high blood', 'cholesterol', 0.26310204525006897],
+        ['high blood', 'diabetes', 0.07875930314114162],
+        ['high blood', 'cardiovascular', 0.10983443291213085],
+        ['high blood', 'sleep disorder', 0.6476138752491668],
+        ['high blood', 'high blood', 0.0],
+        ['high blood', 'arthritis', 0.23352106670095835],
+        ['high blood', 'asthma', 0.027649845861824535],
+        ['high blood', 'cancer', 0.10767097158078295],
+        ['high blood', 'blind', 0.04241815296382538],
+        ['arthritis', 'cholesterol', 0.026184806790899406],
+        ['arthritis', 'diabetes', 0.023206586921517156],
+        ['arthritis', 'cardiovascular', 0.0560053213435662],
+        ['arthritis', 'sleep disorder', 0.008490619789657983],
+        ['arthritis', 'high blood', 0.007445261665291664],
+        ['arthritis', 'arthritis', 0.0],
+        ['arthritis', 'asthma', 0.1312988651174659],
+        ['arthritis', 'cancer', 0.03006927765840889],
+        ['arthritis', 'blind', 0.09190763363525684],
+        ['asthma', 'cholesterol', 0.039701629758938387],
+        ['asthma', 'diabetes', 0.0044646854719179035],
+        ['asthma', 'cardiovascular', 0.0815638716959212],
+        ['asthma', 'sleep disorder', 0.06611645530491342],
+        ['asthma', 'high blood', 0.04266555815620369],
+        ['asthma', 'arthritis', 0.02554380595511413],
+        ['asthma', 'asthma', 0.0],
+        ['asthma', 'cancer', 0.017793352927279772],
+        ['asthma', 'blind', 0.13668707771662583],
+        ['cancer', 'cholesterol', 0.22109886195036235],
+        ['cancer', 'diabetes', 0.005227757228704721],
+        ['cancer', 'cardiovascular', 0.14157994153284054],
+        ['cancer', 'sleep disorder', 0.6279394965163728],
+        ['cancer', 'high blood', 0.12345773389136999],
+        ['cancer', 'arthritis', 0.29362152133652514],
+        ['cancer', 'asthma', 0.03469616356158588],
+        ['cancer', 'cancer', 0.0],
+        ['cancer', 'blind', 0.06562849925513375],
+        ['blind', 'cholesterol', 0.08044569636461585],
+        ['blind', 'diabetes', 0.06673260815936406],
+        ['blind', 'cardiovascular', 0.12837810215933015],
+        ['blind', 'sleep disorder', 0.1275306043056056],
+        ['blind', 'high blood', 0.2311536400021236],
+        ['blind', 'arthritis', 0.14479594078913308],
+        ['blind', 'asthma', 0.08061429104266266],
+        ['blind', 'cancer', 0.14228239420737648],
+        ['blind', 'blind', 0.0]];
 
         var colors = {
-            "Arsenal": "#da4480"
-        , "Aston Villa": "#5ab449"
-        , "Bournemouth": "#7f5acd"
-        , "Chelsea": "#aab740"
-        , "Crystal Palace": "#ce58c0"
-        , "Everton": "#50a26e"
-        , "Leicester City": "#d1434b"
-        , "Liverpool": "#45c0bc"
-        , "Manchester City": "#ce5929"
-        , "Manchester Utd": "#4e7bda"
-        , "Newcastle Utd": "#d49d3c"
-        , "Norwich City": "#6660a3"
-        , "Southampton": "#7b853c"
-        , "Stoke City": "#b58dde"
-        , "Sunderland": "#97622e"
-        , "Swansea City": "#609dd6"
-        , "Tottenham": "#e29074"
-        , "Watford": "#9c4b88"
-        , "West Bromwich": "#ab505f"
-        , "West Ham Utd": "#dc85b6"
-    };
+            "cholesterol": "#da4480"
+            , "diabetes": "#5ab449"
+            , "cardiovascular": "#7f5acd"
+            , "sleep disorder": "#aab740"
+            , "high blood": "#ce58c0"
+            , "arthritis": "#50a26e"
+            , "asthma": "#d1434b"
+            , "cancer": "#45c0bc"
+            , "blind": "#ce5929"
+            ,
+        };
 
-    var sortOrder = [
-        "Arsenal"
-        , "Aston Villa"
-        , "Bournemouth"
-        , "Chelsea"
-        , "Crystal Palace"
-        , "Everton"
-        , "Leicester City"
-        , "Liverpool"
-        , "Manchester City"
-        , "Manchester Utd"
-        , "Newcastle Utd"
-        , "Norwich City"
-        , "Southampton"
-        , "Stoke City"
-        , "Sunderland"
-        , "Swansea City"
-        , "Tottenham"
-        , "Watford"
-        , "West Bromwich"
-        , "West Ham Utd"
-    ];
+        var sortOrder = [
+            "Arsenal"
+            , "Aston Villa"
+            , "Bournemouth"
+            , "Chelsea"
+            , "Crystal Palace"
+            , "Everton"
+            , "Leicester City"
+            , "Liverpool"
+            , "Manchester City"
+            , "Manchester Utd"
+            , "Newcastle Utd"
+            , "Norwich City"
+            , "Southampton"
+            , "Stoke City"
+            , "Sunderland"
+            , "Swansea City"
+            , "Tottenham"
+            , "Watford"
+            , "West Bromwich"
+            , "West Ham Utd"
+        ];
 
         function sort(a, b) { return d3.ascending(sortOrder.indexOf(a), sortOrder.indexOf(b)); }
 
@@ -483,13 +196,13 @@
             .labelPadding(.03)
             .fill(function (d) { return colors[d]; });
 
-    var width = 1000, height = 1000;
+        var width = 1000, height = 1000;
 
-    var svg = d3.select("body").append("svg").attr("height", height).attr("width", width);
+        var svg = d3.select("body").append("svg").attr("height", height).attr("width", width);
 
-    svg.append("g").attr("transform", "translate(600,550)").call(ch);
+        svg.append("g").attr("transform", "translate(600,550)").call(ch);
 
-    // adjust height of frame in bl.ocks.org
-    d3.select(self.frameElement).style("height", height + "px").style("width", width + "px");     
+        // adjust height of frame in bl.ocks.org
+        d3.select(self.frameElement).style("height", height + "px").style("width", width + "px");     
     </script>
     LICENSE
