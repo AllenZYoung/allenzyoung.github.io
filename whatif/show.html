@@ -28,7 +28,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <div class="row">
+    <div class="row" style="width:1600px;height:600px;margin-left:40px">
         <div class=".col-xs-6" id="myDiv1" style="width:600px;height:600px;"></div>
         <div class=".col-xs-6" id="myDiv2" style="width:600px;height:600px;"></div>
     </div>
@@ -37,164 +37,147 @@
             var data = [
                 {
                     z: [[0.0, 0.1787890902420903, 0.14941471322125455, 0.048848083776572904, 0.08321803620816695, 0.20727647731643606, 0.037414596877983354, 0.12280401457187005, 0.0635287873177645], [0.1787890902420903, 0.0, 0.13157592929484715, 0.05349018222101478, 0.047107564672184715, 0.13902357029543355, 0.04302720420286471, 0.0551117805918617, 0.07763193795289365], [0.14941471322125455, 0.13157592929484715, 0.0, 0.06283546979558355, 0.035463687353795285, 0.1259012921193426, 0.037063297144596496, 0.08104608097991649, 0.08558331582856063], [0.048848083776572904, 0.053490182221014794, 0.06283546979558355, 0.0, 0.0025300221012361825, 0.13848641036867002, 0.100623692556181, 0.024812453502264853, 0.08912558055900315], [0.08321803620816695, 0.047107564672184715, 0.03546368735379529, 0.002530022101236183, 0.0, 0.0739550426297438, 0.009279497776237142, 0.04756363758616193, 0.013847095614818658], [0.20727647731643606, 0.13902357029543358, 0.1259012921193426, 0.13848641036867002, 0.0739550426297438, 0.0, 0.105463978430365, 0.16326575738447882, 0.11078933065693508], [0.03741459687798336, 0.04302720420286471, 0.037063297144596496, 0.100623692556181, 0.009279497776237143, 0.105463978430365, 0.0, 0.020137828127258485, 0.06138695085526457], [0.12280401457187005, 0.055111780591861705, 0.08104608097991647, 0.024812453502264853, 0.04756363758616193, 0.16326575738447882, 0.020137828127258485, 0.0, 0.03698480878644211], [0.0635287873177645, 0.07763193795289365, 0.08558331582856063, 0.08912558055900315, 0.013847095614818658, 0.11078933065693508, 0.06138695085526457, 0.0369848087864421, 0.0]],
-                    x: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
-                    y: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
+                    x:
+                        ["Blood Cholesterol", "Diabetes", "Cardiovascular Disease", "Sleep Disorder", "High Blood Pressure", "Arthritis", "Asthma", "Cancer", "Difficulty in Vision"],
+                    y:
+                        ["Blood Cholesterol", "Diabetes", "Cardiovascular Disease", "Sleep Disorder", "High Blood Pressure", "Arthritis", "Asthma", "Cancer", "Difficulty in Vision"],
                     type: 'heatmap',
                     colorscale: 'YIOrRd'
                 }
             ];
-            var layout1 = { title: 'Questionare' };
+            var layout1 = { title: 'Questionare', autosize: true, xaxis: { automargin: true }, yaxis: { automargin: true } };
             Plotly.newPlot('myDiv1', data, layout1);
         });
         Plotly.d3.json('https://raw.githubusercontent.com/plotly/datasets/master/custom_heatmap_colorscale.json', function (figure) {
             var data2 = [
                 {
-                    z: [[0.0, 0.003453476820141077, 0.00599652761593461, 0.0, 0.0018571378896012902, 0.0005431466270238161, 0.00012029713252559304, 0.0006569725810550153, 0.0007955996552482247], [0.003453476820141077, 0.0, 0.01874319277703762, 3.358538378961384e-05, 0.0003978930471930653, 0.0008672940894030035, 0.0006014785030856729, 0.002004509326070547, 0.002826100680977106], [0.00599652761593461, 0.01874319277703762, 0.0, 1.6786269043223e-05, 0.0006976763252168894, 0.003961279988288879, 0.0003965772339142859, 0.001433481345884502, 0.001166240661405027], [0.0, 3.358538378961384e-05, 1.6786269043223e-05, 0.0, 0.0, 1.0599733286653645e-05, 0.0, 2.27324130719353e-06, 6.380127888405696e-05], [0.0018571378896012902, 0.0003978930471930653, 0.0006976763252168894, 0.0, 0.0, 7.214263314381242e-05, 7.41628828109242e-05, 1.9263696231064387e-05, 0.00020117081294301897], [0.0005431466270238161, 0.0008672940894030035, 0.003961279988288879, 1.0599733286653645e-05, 7.214263314381242e-05, 0.0, 0.00046544100041501224, 0.00025989607092924416, 0.005992067512124777], [0.00012029713252559304, 0.0006014785030856729, 0.0003965772339142859, 0.0, 7.41628828109242e-05, 0.00046544100041501224, 0.0, 0.0001065453325281851, 0.0035565474536269903], [0.0006569725810550153, 0.002004509326070547, 0.001433481345884502, 2.27324130719353e-06, 1.9263696231064387e-05, 0.00025989607092924416, 0.0001065453325281851, 0.0, 0.0011920379474759102], [0.0007955996552482247, 0.002826100680977106, 0.001166240661405027, 6.380127888405696e-05, 0.00020117081294301897, 0.005992067512124777, 0.0035565474536269903, 0.0011920379474759102, 0.0]],
-                    x: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
+                    z:
+                        [[0.0, 0.003453476820141077, 0.00599652761593461, 0.0, 0.00025828820071183145, 0.0005431466270238161, 0.00012029713252559304, 0.0006569725810550153, 0.0007955996552482247], [0.003453476820141077, 0.0, 0.01874319277703762, 2.2303505829768255e-05, 0.00015765834541525692, 0.0008672940894030035, 0.0006014785030856729, 0.002004509326070547, 0.002826100680977106], [0.00599652761593461, 0.01874319277703762, 0.0, 1.9093382434220985e-05, 0.0001981795794563368, 0.003961279988288879, 0.0003965772339142859, 0.001433481345884502, 0.001166240661405027], [0.0, 2.2303505829768255e-05, 1.9093382434220985e-05, 0.0, 0.0, 1.036477078741882e-05, 0.0, 3.7212728329905076e-06, 9.499382576905191e-05], [0.00025828820071183145, 0.00015765834541525692, 0.0001981795794563368, 0.0, 0.0, 2.5928256945917383e-05, 1.2657266779569909e-05, 0.000181178271304816, 3.0538412829628214e-05], [0.0005431466270238161, 0.0008672940894030035, 0.003961279988288879, 1.036477078741882e-05, 2.5928256945917383e-05, 0.0, 0.00046544100041501224, 0.00025989607092924416, 0.005992067512124777], [0.00012029713252559304, 0.0006014785030856729, 0.0003965772339142859, 0.0, 1.2657266779569909e-05, 0.00046544100041501224, 0.0, 0.0001065453325281851, 0.0035565474536269903], [0.0006569725810550153, 0.002004509326070547, 0.001433481345884502, 3.7212728329905076e-06, 0.000181178271304816, 0.00025989607092924416, 0.0001065453325281851, 0.0, 0.0011920379474759102], [0.0007955996552482247, 0.002826100680977106, 0.001166240661405027, 9.499382576905191e-05, 3.0538412829628214e-05, 0.005992067512124777, 0.0035565474536269903, 0.0011920379474759102, 0.0]],
+                    x:
+                        ["Blood Cholesterol", "Diabetes", "Cardiovascular Disease", "Sleep Disorder", "High Blood Pressure", "Arthritis", "Asthma", "Cancer", "Difficulty in Vision"],
 
-                    y: ['cholesterol', 'diabetes', 'cardiovascular', 'sleep disorder', 'high blood', 'arthritis', 'asthma', 'cancer', 'blind'],
+                    y:
+                        ["Blood Cholesterol", "Diabetes", "Cardiovascular Disease", "Sleep Disorder", "High Blood Pressure", "Arthritis", "Asthma", "Cancer", "Difficulty in Vision"],
                     type: 'heatmap',
                     colorscale: 'YIOrRd'
                 }
             ];
-            var layout2 = { title: 'PubMed' };
+            var layout2 = { title: 'PubMed', autosize: true, xaxis: { automargin: true }, yaxis: { automargin: true } };
             Plotly.newPlot('myDiv2', data2, layout2);
         });
     </script>
 
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
+    <script src="http://vizjs.org/viz.v1.1.2.min.js"></script>
     <script>
 
-        var data = [['cholesterol', 'cholesterol', 0.0],
-        ['cholesterol', 'diabetes', 0.10948940790956525],
-        ['cholesterol', 'cardiovascular', 0.12256179572686601],
-        ['cholesterol', 'sleep disorder', 0.04407832680039861],
-        ['cholesterol', 'high blood', 0.00172670594286857],
-        ['cholesterol', 'arthritis', 0.008097067966926691],
-        ['cholesterol', 'asthma', 0.09164291502197484],
-        ['cholesterol', 'cancer', 0.09443846212959987],
-        ['cholesterol', 'blind', 0.06072552953413249],
-        ['diabetes', 'cholesterol', 0.23065822785466467],
-        ['diabetes', 'diabetes', 0.0],
-        ['diabetes', 'cardiovascular', 0.12870180245486748],
-        ['diabetes', 'sleep disorder', 0.02796875870772845],
-        ['diabetes', 'high blood', 0.21609056158750384],
-        ['diabetes', 'arthritis', 0.16739780534639784],
-        ['diabetes', 'asthma', 0.04216640268647695],
-        ['diabetes', 'cancer', 0.48325433514076876],
-        ['diabetes', 'blind', 0.10245189967813725],
-        ['cardiovascular', 'cholesterol', 0.07417822893414958],
-        ['cardiovascular', 'diabetes', 0.09559908778050111],
-        ['cardiovascular', 'cardiovascular', 0.0],
-        ['cardiovascular', 'sleep disorder', 0.01306385108941474],
-        ['cardiovascular', 'high blood', 0.036625221197846496],
-        ['cardiovascular', 'arthritis', 0.0207061947765963],
-        ['cardiovascular', 'asthma', 0.07385029487686492],
-        ['cardiovascular', 'cancer', 0.01063218603518891],
-        ['cardiovascular', 'blind', 0.11362184519869244],
-        ['sleep disorder', 'cholesterol', 0.09031786485741028],
-        ['sleep disorder', 'diabetes', 0.09735014034625881],
-        ['sleep disorder', 'cardiovascular', 0.11607923594356069],
-        ['sleep disorder', 'sleep disorder', 0.0],
-        ['sleep disorder', 'high blood', 0.6633878288687088],
-        ['sleep disorder', 'arthritis', 0.26093752358086664],
-        ['sleep disorder', 'asthma', 0.1880009401720679],
-        ['sleep disorder', 'cancer', 0.2576255311530233],
-        ['sleep disorder', 'blind', 0.168327655121568],
-        ['high blood', 'cholesterol', 0.26310204525006897],
-        ['high blood', 'diabetes', 0.07875930314114162],
-        ['high blood', 'cardiovascular', 0.10983443291213085],
-        ['high blood', 'sleep disorder', 0.6476138752491668],
-        ['high blood', 'high blood', 0.0],
-        ['high blood', 'arthritis', 0.23352106670095835],
-        ['high blood', 'asthma', 0.027649845861824535],
-        ['high blood', 'cancer', 0.10767097158078295],
-        ['high blood', 'blind', 0.04241815296382538],
-        ['arthritis', 'cholesterol', 0.026184806790899406],
-        ['arthritis', 'diabetes', 0.023206586921517156],
-        ['arthritis', 'cardiovascular', 0.0560053213435662],
-        ['arthritis', 'sleep disorder', 0.008490619789657983],
-        ['arthritis', 'high blood', 0.007445261665291664],
-        ['arthritis', 'arthritis', 0.0],
-        ['arthritis', 'asthma', 0.1312988651174659],
-        ['arthritis', 'cancer', 0.03006927765840889],
-        ['arthritis', 'blind', 0.09190763363525684],
-        ['asthma', 'cholesterol', 0.039701629758938387],
-        ['asthma', 'diabetes', 0.0044646854719179035],
-        ['asthma', 'cardiovascular', 0.0815638716959212],
-        ['asthma', 'sleep disorder', 0.06611645530491342],
-        ['asthma', 'high blood', 0.04266555815620369],
-        ['asthma', 'arthritis', 0.02554380595511413],
-        ['asthma', 'asthma', 0.0],
-        ['asthma', 'cancer', 0.017793352927279772],
-        ['asthma', 'blind', 0.13668707771662583],
-        ['cancer', 'cholesterol', 0.22109886195036235],
-        ['cancer', 'diabetes', 0.005227757228704721],
-        ['cancer', 'cardiovascular', 0.14157994153284054],
-        ['cancer', 'sleep disorder', 0.6279394965163728],
-        ['cancer', 'high blood', 0.12345773389136999],
-        ['cancer', 'arthritis', 0.29362152133652514],
-        ['cancer', 'asthma', 0.03469616356158588],
-        ['cancer', 'cancer', 0.0],
-        ['cancer', 'blind', 0.06562849925513375],
-        ['blind', 'cholesterol', 0.08044569636461585],
-        ['blind', 'diabetes', 0.06673260815936406],
-        ['blind', 'cardiovascular', 0.12837810215933015],
-        ['blind', 'sleep disorder', 0.1275306043056056],
-        ['blind', 'high blood', 0.2311536400021236],
-        ['blind', 'arthritis', 0.14479594078913308],
-        ['blind', 'asthma', 0.08061429104266266],
-        ['blind', 'cancer', 0.14228239420737648],
-        ['blind', 'blind', 0.0]];
+        var data = [['Blood Cholesterol', 'Blood Cholesterol', 0.0],
+        ['Blood Cholesterol', 'Diabetes', 0.109],
+        ['Blood Cholesterol', 'Cardiovascular Disease', 0],
+        ['Blood Cholesterol', 'Sleep Disorder', 0],
+        ['Blood Cholesterol', 'High Blood Pressure', 0.002],
+        ['Blood Cholesterol', 'Arthritis', 0],
+        ['Blood Cholesterol', 'Asthma', 0],
+        ['Blood Cholesterol', 'Cancer', 0.094],
+        ['Blood Cholesterol', 'Difficulty in Vision', 0.061],
+        ['Diabetes', 'Blood Cholesterol', 0.231],
+        ['Diabetes', 'Diabetes', 0.0],
+        ['Diabetes', 'Cardiovascular Disease', 0.129],
+        ['Diabetes', 'Sleep Disorder', 0.028],
+        ['Diabetes', 'High Blood Pressure', 0],
+        ['Diabetes', 'Arthritis', 0.167],
+        ['Diabetes', 'Asthma', 0.042],
+        ['Diabetes', 'Cancer', 0],
+        ['Diabetes', 'Difficulty in Vision', 0.102],
+        ['Cardiovascular Disease', 'Blood Cholesterol', 0.074],
+        ['Cardiovascular Disease', 'Diabetes', 0],
+        ['Cardiovascular Disease', 'Cardiovascular Disease', 0.0],
+        ['Cardiovascular Disease', 'Sleep Disorder', 0],
+        ['Cardiovascular Disease', 'High Blood Pressure', 0],
+        ['Cardiovascular Disease', 'Arthritis', 0.021],
+        ['Cardiovascular Disease', 'Asthma', 0],
+        ['Cardiovascular Disease', 'Cancer', 0.011],
+        ['Cardiovascular Disease', 'Difficulty in Vision', 0.114],
+        ['Sleep Disorder', 'Blood Cholesterol', 0.09],
+        ['Sleep Disorder', 'Diabetes', 0.097],
+        ['Sleep Disorder', 'Cardiovascular Disease', 0.116],
+        ['Sleep Disorder', 'Sleep Disorder', 0.0],
+        ['Sleep Disorder', 'High Blood Pressure', 0],
+        ['Sleep Disorder', 'Arthritis', 0.261],
+        ['Sleep Disorder', 'Asthma', 0.188],
+        ['Sleep Disorder', 'Cancer', 0],
+        ['Sleep Disorder', 'Difficulty in Vision', 0.168],
+        ['High Blood Pressure', 'Blood Cholesterol', 0.263],
+        ['High Blood Pressure', 'Diabetes', 0.079],
+        ['High Blood Pressure', 'Cardiovascular Disease', 0.11],
+        ['High Blood Pressure', 'Sleep Disorder', 0],
+        ['High Blood Pressure', 'High Blood Pressure', 0.0],
+        ['High Blood Pressure', 'Arthritis', 0.234],
+        ['High Blood Pressure', 'Asthma', 0.028],
+        ['High Blood Pressure', 'Cancer', 0],
+        ['High Blood Pressure', 'Difficulty in Vision', 0.042],
+        ['Arthritis', 'Blood Cholesterol', 0.026],
+        ['Arthritis', 'Diabetes', 0.023],
+        ['Arthritis', 'Cardiovascular Disease', 0],
+        ['Arthritis', 'Sleep Disorder', 0.008],
+        ['Arthritis', 'High Blood Pressure', 0.007],
+        ['Arthritis', 'Arthritis', 0.0],
+        ['Arthritis', 'Asthma', 0],
+        ['Arthritis', 'Cancer', 0.03],
+        ['Arthritis', 'Difficulty in Vision', 0.092],
+        ['Asthma', 'Blood Cholesterol', 0],
+        ['Asthma', 'Diabetes', 0.004],
+        ['Asthma', 'Cardiovascular Disease', 0],
+        ['Asthma', 'Sleep Disorder', 0.066],
+        ['Asthma', 'High Blood Pressure', 0],
+        ['Asthma', 'Arthritis', 0],
+        ['Asthma', 'Asthma', 0.0],
+        ['Asthma', 'Cancer', 0],
+        ['Asthma', 'Difficulty in Vision', 0.137],
+        ['Cancer', 'Blood Cholesterol', 0.221],
+        ['Cancer', 'Diabetes', 0],
+        ['Cancer', 'Cardiovascular Disease', 0.142],
+        ['Cancer', 'Sleep Disorder', 0],
+        ['Cancer', 'High Blood Pressure', 0],
+        ['Cancer', 'Arthritis', 0.294],
+        ['Cancer', 'Asthma', 0.035],
+        ['Cancer', 'Cancer', 0.0],
+        ['Cancer', 'Difficulty in Vision', 0.066],
+        ['Difficulty in Vision', 'Blood Cholesterol', 0.08],
+        ['Difficulty in Vision', 'Diabetes', 0.067],
+        ['Difficulty in Vision', 'Cardiovascular Disease', 0.128],
+        ['Difficulty in Vision', 'Sleep Disorder', 0],
+        ['Difficulty in Vision', 'High Blood Pressure', 0],
+        ['Difficulty in Vision', 'Arthritis', 0.145],
+        ['Difficulty in Vision', 'Asthma', 0.081],
+        ['Difficulty in Vision', 'Cancer', 0],
+        ['Difficulty in Vision', 'Difficulty in Vision', 0.0]]
+            ;
 
         var colors = {
-            "cholesterol": "#da4480"
-            , "diabetes": "#5ab449"
-            , "cardiovascular": "#7f5acd"
-            , "sleep disorder": "#aab740"
-            , "high blood": "#ce58c0"
-            , "arthritis": "#50a26e"
-            , "asthma": "#d1434b"
-            , "cancer": "#45c0bc"
-            , "blind": "#ce5929"
+            "Blood Cholesterol": "#da4480"
+            , "Diabetes": "#5ab449"
+            , "Cardiovascular Disease": "#7f5acd"
+            , "Sleep Disorder": "#aab740"
+            , "High Blood Pressure": "#ce58c0"
+            , "Arthritis": "#50a26e"
+            , "Asthma": "#d1434b"
+            , "Cancer": "#45c0bc"
+            , "Difficulty in Vision": "#ce5929"
             ,
         };
-
-        var sortOrder = [
-            "Arsenal"
-            , "Aston Villa"
-            , "Bournemouth"
-            , "Chelsea"
-            , "Crystal Palace"
-            , "Everton"
-            , "Leicester City"
-            , "Liverpool"
-            , "Manchester City"
-            , "Manchester Utd"
-            , "Newcastle Utd"
-            , "Norwich City"
-            , "Southampton"
-            , "Stoke City"
-            , "Sunderland"
-            , "Swansea City"
-            , "Tottenham"
-            , "Watford"
-            , "West Bromwich"
-            , "West Ham Utd"
-        ];
-
-        function sort(a, b) { return d3.ascending(sortOrder.indexOf(a), sortOrder.indexOf(b)); }
-
+        var ch_1 = viz.ch();
+        console.log(ch_1);
         var ch = viz.ch().data(data)
             .padding(.01)
-            .sort(sort)
+            .label(function (d) { console.log(d); return d['source']; })
             .innerRadius(270)
             .outerRadius(290)
             .duration(1000)
             .chordOpacity(0.3)
-            .labelPadding(.03)
-            .fill(function (d) { return colors[d]; });
+            .labelPadding(.05)
+            .fill(function (d) { return colors[d]; })
+            ;
 
         var width = 1000, height = 1000;
 
@@ -205,4 +188,3 @@
         // adjust height of frame in bl.ocks.org
         d3.select(self.frameElement).style("height", height + "px").style("width", width + "px");     
     </script>
-    LICENSE
