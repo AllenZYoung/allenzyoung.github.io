@@ -1,0 +1,743 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="团队组织,随笔," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="关于系统分析与设计课程项目的总结​    这学期的系统分析与设计课程可能是我大学以来耗费精力最大的几门课之一，上一次为一门课程如此费心劳神还是去年的计算机组成与体系结构。不过计组显然是纯知识性的课程，而系统分析则偏向实践很多。课程大作业要求做一个医院预约挂号系统，具体地说是一个网站平台，前期进行需求调研和分析，中期设计架构和数据，后期主要做实现。现在项目作品虽简陋，但总算已告完成，刚刚结束的答辩也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于系统分析与设计课程项目的总结">
+<meta property="og:url" content="http://yoursite.com/2017/01/17/关于系统分析与设计课程项目的总结/index.html">
+<meta property="og:site_name" content="YangZ's">
+<meta property="og:description" content="关于系统分析与设计课程项目的总结​    这学期的系统分析与设计课程可能是我大学以来耗费精力最大的几门课之一，上一次为一门课程如此费心劳神还是去年的计算机组成与体系结构。不过计组显然是纯知识性的课程，而系统分析则偏向实践很多。课程大作业要求做一个医院预约挂号系统，具体地说是一个网站平台，前期进行需求调研和分析，中期设计架构和数据，后期主要做实现。现在项目作品虽简陋，但总算已告完成，刚刚结束的答辩也">
+<meta property="og:updated_time" content="2017-01-17T13:48:47.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于系统分析与设计课程项目的总结">
+<meta name="twitter:description" content="关于系统分析与设计课程项目的总结​    这学期的系统分析与设计课程可能是我大学以来耗费精力最大的几门课之一，上一次为一门课程如此费心劳神还是去年的计算机组成与体系结构。不过计组显然是纯知识性的课程，而系统分析则偏向实践很多。课程大作业要求做一个医院预约挂号系统，具体地说是一个网站平台，前期进行需求调研和分析，中期设计架构和数据，后期主要做实现。现在项目作品虽简陋，但总算已告完成，刚刚结束的答辩也">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/17/关于系统分析与设计课程项目的总结/"/>
+
+  <title> 关于系统分析与设计课程项目的总结 | YangZ's </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58284628";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+    <div class="site-meta-headline">
+      <a>
+        <img class="custom-logo-image" src="http://www.downwithdesign.com/wp-content/uploads/2012/07/dark-knight-rises-batman-logo.png"
+             alt="YangZ's"/>
+      </a>
+    </div>
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">YangZ's</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">见素抱朴，知行合一。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于系统分析与设计课程项目的总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-01-17T21:47:17+08:00" content="2017-01-17">
+              2017-01-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/随笔杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔杂谈</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/17/关于系统分析与设计课程项目的总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/17/关于系统分析与设计课程项目的总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="关于系统分析与设计课程项目的总结"><a href="#关于系统分析与设计课程项目的总结" class="headerlink" title="关于系统分析与设计课程项目的总结"></a>关于系统分析与设计课程项目的总结</h1><p>​    这学期的系统分析与设计课程可能是我大学以来耗费精力最大的几门课之一，上一次为一门课程如此费心劳神还是去年的计算机组成与体系结构。不过计组显然是纯知识性的课程，而系统分析则偏向实践很多。课程大作业要求做一个医院预约挂号系统，具体地说是一个网站平台，前期进行需求调研和分析，中期设计架构和数据，后期主要做实现。现在项目作品虽简陋，但总算已告完成，刚刚结束的答辩也取得了不错的效果，遂对整个流程做一回顾总结。<a id="more"></a></p>
+<p>​    作为一个有一定规模的团队作业，决定最终成果的便不单单是某几个特定个人的水平如何，实际上，团队的分工配合才是绩效产出的关键。个人的能力有大小区别，如果任务压力小，还能由一两个人独自做完，但时间紧、任务重时，必须进行团队的分工和合作，这就对这个小队的组织提出了要求。绝不能如一团乱麻，各行其是，而是要步调一致，节奏和谐。而所谓领导组织的工作，在小规模的团队中，不外乎指定方向，制定任务，安排人事几个方面。</p>
+<p>​    首先要注意的是团队的组建，这决定了此后团队合作的基调。我们小组相对人少（8人），而其他小组基本都在十一二人左右，乍看之下处于弱势。但实际上，人数少可以减少摩擦和分工配合带来的时间、精力损耗，按照《人月神话》的观点，团队规模小一些的工程会更有效率。在人员构成方面，我们小组也有值得注意的几点：一是性别比合适，我们的男女比例是7:1，而环境男女比例即为6.7:1（本学院的情况）。接近环境的性别比例应该说是最佳的性别比例，若全是男生，则“阳气”过重，没有女生发挥调节气氛的作用，难免稍显单调。而若女生比例较高（如某些小组达到3:1），在大环境下女生就很少的情况下，女性可能倾向于抱团，成为割裂小组关系网络的一个潜在影响因素。在工作上，女生较好面子，在男性较多的团队里也时常担心自己做了拖油瓶，所以对于工作安排，只要合情合理，基本都会采取积极肯干的态度。团队的领导组织不应使作为少数的女生感到自己被作为少数或弱势处理，应该为她们提供充足的合适的发挥空间，使得整个团队气氛和谐。另外，女生心思细腻一些，在开会讨论时或者团队中出现问题矛盾时，尤其要注意考虑女性群体的感受和意见，中国俗话说“男女搭配，干活不累”，良有以也。二是我们组的建立就与其他小队不同。其他小队多作为几个宿舍拼凑而成，或一个人带两三个狐朋狗友加入，颇有些“抱团取暖”的意味。我们组8人都在不同的宿舍，且之前彼此关系并不算特别亲密。这样便容易建立一种我称之为“法治社会”的合作模式——每个人都要承担自己的任务且接受“舆论压力”，没有讲情分撂挑子的因素。</p>
+<p>​    另外需要注意的是人事模块拆分与信息的透明化，这实际上是一组矛盾。拆分了人事模块（我们组有一个统一的大群，而其中前端和后端又分属两个不同的讨论组，我本身则作为前后端的一个沟通媒体）可以减少团队分工的噪音，还符合“高内聚，低耦合“的思想，但这样又难免导致人事模块（其实就是小队）间信息流通的低效，有的时候甚至变成了各行其是，最后工作统筹不到一起。所谓流水不腐，户枢不蠹，要时刻注意信息透明化与人事模块化之间的平衡，任何组织都需要结构，都需要职能部门的划分，但划分部门和层级的初衷是提高问题解决的效率，如果某种组织结构的存在反而降低了整体的效率，就需要好好考虑调整乃至取消了。</p>
+<p>​    组织的存在是为了团结一群人的力量从而解决某种问题，一旦这问题被解决了，这组织便无存在之理由了。但问题一般也有在不断变化的情况，所以就需要组织也被这变化的问题所决定着，一同进行变化，这就是所谓的与时俱进，实事求是。也正因为组织是为了团结一群人，所以就需要协调并管理众人及其利益，此之谓政治。所以不妨断言，有人的地方就有组织，有组织的地方就有政治。这实际上指出了一种要求，那就是我们在团队合作时也需要有一些政治智慧，平衡不同集团的利益诉求，照顾个别少数人的心理感受，以及调动绝大多数人的积极性等等，都是这个范畴中的问题。就工程问题而言，进展过程中难免有人出现一些心理上的想法，有的是过于消极的逃避或焦虑，有的是过于积极的冒进和不听指挥，这些都是要在组织中避免的，具体做法就是提前私下沟通，做思想工作，争取达成一致，然后在正式的会议上完成工作协调中最后的部分，结束个别少数人的休整，开启新阶段任务的篇章。</p>
+<p>​    团队的吸引力来自哪里呢？首先是利益上的吸引力，然后是情感上的吸引力，此二者是会有交集的。利益上的吸引力，对于公司而言，薪资奖金期权分红等，对于政党而言，权力地位等，而对于一个课程小组，也就只能是分数了。这在宏观上是一个正反馈调节——团队成员感到这种吸引力，然后提高了工作的积极性，对团队事业更为投入，从而使得团队事业更有成功的可能， 团队的吸引力从而增强。所以一开始组织者就应该有且表现出做好做强的决心，团队吸引力的第一次推动，主要就是来自于团队建立者组织者的表现。在情感上的吸引力更像是一种政治手段，在不少公司中，这被称为“要让员工有家的感觉”，在政党组织中，主要依靠政治倾向和信仰来维系这种情感，在微型团队（相比前述公司或政党）中，建立这种情感上的吸引力要好办的多——大家一起吃吃饭，聊聊天就是最简单的团建方式，人与人之间的情感要从互动和交流中产生，所以似乎再没有比吃吃饭聊聊天更省事高效的做法了。</p>
+<p>​    作为汉高祖，刘邦当皇帝后最愁的应该是两件事，一是功臣的行赏分封，二是立嗣。前者是在组织作为工程建立者转向工程维护者后，平衡团队中各方面利益诉求的问题，后者是一个提高团队稳定性，保证团队可持续发展的问题。这两种问题在微型组织中仍然会遇到。蛋糕做大后，问题就在于怎么分这块蛋糕。古代强调论功行赏，同时将领也最忌自矜功伐，都是古人分蛋糕吃的智慧。如果只是把蛋糕做大，但蛋糕没有分的让绝大多数人满意，让重要的人满意，那么这个蛋糕仍然算是做失败了，如果今天不失败，那么明天也要失败。</p>
+<p>​    </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如您喜欢这篇文章，可赠我一杯可乐或咖啡。</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/WCreward.png" alt="YangZ WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ZFBrew.jpg" alt="YangZ Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/团队组织/" rel="tag">#团队组织</a>
+          
+            <a href="/tags/随笔/" rel="tag">#随笔</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/07/深入浅出信号量/" rel="next" title="深入浅出信号量">
+                <i class="fa fa-chevron-left"></i> 深入浅出信号量
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/17/关于系统分析与设计课程项目的总结/"
+           data-title="关于系统分析与设计课程项目的总结" data-url="http://yoursite.com/2017/01/17/关于系统分析与设计课程项目的总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="YangZ" />
+          <p class="site-author-name" itemprop="name">YangZ</p>
+          <p class="site-description motion-element" itemprop="description">All in or nothing.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AllenZYoung" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/allzyoung" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于系统分析与设计课程项目的总结"><span class="nav-text">关于系统分析与设计课程项目的总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YangZ</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"allenzyoung"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

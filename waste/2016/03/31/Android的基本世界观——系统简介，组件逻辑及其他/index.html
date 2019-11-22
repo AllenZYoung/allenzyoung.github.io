@@ -1,0 +1,804 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言作为一个有半年Android Developing折腾经验的Android Developer（为什么不说“开发经验”呢？因为我想了想，目前我还没有独立地做出一个完善美观且有使用价值的应用。），要系统地学习安卓平台的基本开发技能，那么第一步，了解并熟识Android的基本世界观，应该就是十分必要的了。以前自己关于这方面的基础知识体系不成系统，比较破碎零散，故借此文稍作整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android的基本世界观——系统简介，组件逻辑及其他">
+<meta property="og:url" content="http://yoursite.com/2016/03/31/Android的基本世界观——系统简介，组件逻辑及其他/index.html">
+<meta property="og:site_name" content="YangZ's">
+<meta property="og:description" content="前言作为一个有半年Android Developing折腾经验的Android Developer（为什么不说“开发经验”呢？因为我想了想，目前我还没有独立地做出一个完善美观且有使用价值的应用。），要系统地学习安卓平台的基本开发技能，那么第一步，了解并熟识Android的基本世界观，应该就是十分必要的了。以前自己关于这方面的基础知识体系不成系统，比较破碎零散，故借此文稍作整理。">
+<meta property="og:image" content="https://ooo.0o0.ooo/2016/03/31/56fd09f75177c.jpg">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Android-System-Architecture.svg/947px-Android-System-Architecture.svg.png">
+<meta property="og:image" content="http://s3.51cto.com/wyfs02/M01/70/F5/wKiom1XBxbHQE-HGAAH7OPcwymw002.jpg">
+<meta property="og:image" content="http://www.android-doc.com/images/service_lifecycle.png">
+<meta property="og:updated_time" content="2016-09-05T10:09:00.709Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android的基本世界观——系统简介，组件逻辑及其他">
+<meta name="twitter:description" content="前言作为一个有半年Android Developing折腾经验的Android Developer（为什么不说“开发经验”呢？因为我想了想，目前我还没有独立地做出一个完善美观且有使用价值的应用。），要系统地学习安卓平台的基本开发技能，那么第一步，了解并熟识Android的基本世界观，应该就是十分必要的了。以前自己关于这方面的基础知识体系不成系统，比较破碎零散，故借此文稍作整理。">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2016/03/31/56fd09f75177c.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/03/31/Android的基本世界观——系统简介，组件逻辑及其他/"/>
+
+  <title> Android的基本世界观——系统简介，组件逻辑及其他 | YangZ's </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=58284628";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+    <div class="site-meta-headline">
+      <a>
+        <img class="custom-logo-image" src="http://www.downwithdesign.com/wp-content/uploads/2012/07/dark-knight-rises-batman-logo.png"
+             alt="YangZ's"/>
+      </a>
+    </div>
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">YangZ's</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">见素抱朴，知行合一。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android的基本世界观——系统简介，组件逻辑及其他
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-03-31T23:35:31+08:00" content="2016-03-31">
+              2016-03-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/31/Android的基本世界观——系统简介，组件逻辑及其他/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Android的基本世界观——系统简介，组件逻辑及其他/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p>作为一个有半年Android Developing折腾经验的Android Developer（为什么不说“开发经验”呢？因为我想了想，目前我还没有独立地做出一个完善美观且有使用价值的应用。），要系统地学习安卓平台的基本开发技能，那么第一步，了解并熟识<strong>Android的基本世界观</strong>，应该就是十分必要的了。以前自己关于这方面的基础知识体系不成系统，比较破碎零散，故借此文稍作整理。<br><a id="more"></a></p>
+<p><strong>我认为在进入任何一个比较复杂的知识体系之前，都需要先用基本世界观来热热身。</strong>对于高中物理而言，初中数学物理知识就形成了基本世界观；对于近体诗写作而言，平水韵和对仗的修辞手法就是基本世界观；而对于Android，基本世界观则包括了Android系统的简介、四大组件的含义、以及其他一些基本的开发逻辑等。</p>
+<h2 id="Android系统"><a href="#Android系统" class="headerlink" title="Android系统"></a><strong>Android系统</strong></h2><h3 id="历史与现状"><a href="#历史与现状" class="headerlink" title="历史与现状"></a><strong>历史与现状</strong></h3><p>Android(Android System)，是<strong>一个基于Linux内核的开源移动操作系统</strong>，由Google旗下的Open Handset Alliance（OHA，开放手持设备联盟）持续领导与开发，主要设计用于触屏移动设备，如智能手机和平板电脑等。Android 1.0 beta于2007年11月5日问世，至于世界上第一部真正意义上使用Android操作系统的设备，则是2008年10月22日发布的HTC Dream。<strong>Android系统采用Linux宏内核，系统核心语言是C和C++，主要的编程开发语言是Java。</strong>截止2016年初，Android的最新版本是Android 6.0“Marshmallow”（棉花糖）。</p>
+<p><img src="https://ooo.0o0.ooo/2016/03/31/56fd09f75177c.jpg" alt="安卓6.0"></p>
+<h3 id="系统与系统架构"><a href="#系统与系统架构" class="headerlink" title="系统与系统架构"></a><strong>系统与系统架构</strong></h3><p>Android系统<strong>执行于Linux kernel之上，但并不是GNU/Linux</strong>。实际上，Android大都并不支持GNU/Linux的一些功能。除了基于Linux的核心之外，则是中介层、数据库元和用C/C++编写的API以及应用程序框架。Android的系统架构如下图所示——</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Android-System-Architecture.svg/947px-Android-System-Architecture.svg.png" alt="安卓系统结构"></p>
+<p>可见，<strong>系统架构大致分为四层：Linux内核层，核心库层（以及运行环境），应用框架层和应用层。</strong></p>
+<p><strong>Linux内核层</strong>比较底层，通常也是对Developer隐藏的。</p>
+<p><strong>Android Runtime与Libraries层</strong>:<br>Android的应用程序通常以<strong>Java</strong>为基础编写，运行程序时，应用程序的代码会被即时转变为Dalvik dex-code（Dalvik Executable），然后Android操作系统通过使用即时编译的<strong>Dalvik虚拟机</strong>来将其运行。也就是说，<strong>Android应用程序是运行在Dalvik虚拟机里面的</strong>，并且每一个应用程序对应有一个单独的Dalvik虚拟机实例（这也保证了如果一个Android应用程序进程意外中止，将不会影响到其它应用程序进程的正常运行。）。Dalvik Virtual Machine在某种角度上很像是JVM（至少我感觉如此），但实际上它们还是有不小的差异的。<strong>JVM是堆栈机器（基于Stack），但Dalvik VM是寄存器架构的机器。JVM执行class格式文件，而Dalvik VM执行dex格式文件。</strong> Dalvik VM会通过执行dex码文件来完成堆栈管理、线程管理、安全异常管理、垃圾回收等重要功能，这些也和JVM很像。<br>Android系统还会通过一些C/C++库来支持我们使用的各个组件（包括OpenGL，SQLite，WebKit等一大堆神奇的引擎和库），这些功能通过应用程序框架提供给开发者，这就是<strong>Libraries层</strong>。</p>
+<p><strong>Application Framework（应用框架）层：</strong> 应用框架层的意义在于，Android提供给开发者一个框架开发平台，开发者在遵循框架原则和逻辑的基础上，对框架进行扩展从而开发出各式各样的app应用。开发时也是通过这一层与底层进行交互，并构建更上一级的应用层。这一层包括了各式各样的系统API，同时也可以应用JNI等技术。应用框架包括了Activity Manager，Window Manager，Content Provider，View System等重要组成部分，可以理解为开发者的一个工具箱。</p>
+<p><strong>应用层</strong>：这一层就是最为形象，和用户直接接触的层次了，包括电话，短信，邮件和各式各样的实用APP、游戏等。</p>
+<h3 id="其他特征"><a href="#其他特征" class="headerlink" title="其他特征"></a><strong>其他特征</strong></h3><ul>
+<li>开发完成后，<strong>Android SDK 工具将代码以及所有数据和资源文件一起编译到一个APK</strong>： Android 软件包，即 .apk 格式的存档文件中。一个 APK 文件包含 Android 应用的所有内容。</li>
+<li>默认情况下，每个应用都在自己的 Linux 进程内运行。Android 会在需要执行任何应用组件时启动该进程，然后在不再需要该进程或系统必须为其他应用恢复内存时关闭该进程。</li>
+<li>默认情况下，每个应用都只能访问执行其工作所需的组件，而不能访问其他组件。 在这样的安全环境中，应用无法访问系统中其未获得权限的部分，但仍然可以通过一些特定的途径与其他应用共享数据以及访问系统服务。</li>
+<li>应用可以请求访问设备数据（如用户的联系人、短信、可装入存储装置 [SD 卡]、相机、蓝牙等）的权限。所有应用权限都必须由用户在安装时授予。这也就是安装时会列出的“需要的权限”信息。</li>
+</ul>
+<h2 id="Android四大组件"><a href="#Android四大组件" class="headerlink" title="Android四大组件"></a><strong>Android四大组件</strong></h2><h3 id="Activities"><a href="#Activities" class="headerlink" title="Activities"></a><strong>Activities</strong></h3><p><strong>活动</strong>一般就是一个单独的用户界面的屏幕。例如，一个电子邮件应用中可能具有一个显示新邮件列表的 Activity、一个用于撰写新邮件的 Activity 以及一个用于阅读邮件具体内容的 Activity。应用中的多个活动通过协作和聚合的方式形成一种有机的整体，完善用户体验，但每个活动都是独立于其他活动而存在的。在这个逻辑上而言，其他某个应用将可以启动电子邮件应用中的某一个活动，比如在相机应用在拍照后启动撰写新邮件的活动。</p>
+<p><strong>一个应用通常由多个彼此松散联系的 Activity 组成。</strong> 一般会指定应用中的某个 Activity 为“主” Activity，即首次启动应用时呈现给用户的那个 Activity。Activity之间通过Intent组件进行通信。在开发时，每一个Activity都必须要在AndroidManifest.xml配置文件（即清单文件）中声明，否则将无法识别也不执行该Activity。</p>
+<p>关于<strong>Activity的生命周期</strong>：Activity 基本上以三种状态存在，已继续（运行中）、已暂停和已停止。关于活动的七种方法和生命周期详解，可见下图：</p>
+<p><img src="http://s3.51cto.com/wyfs02/M01/70/F5/wKiom1XBxbHQE-HGAAH7OPcwymw002.jpg" alt="活动生命周期"></p>
+<p>Activity的基本方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        <span class="comment">// The activity is being created.</span></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStart();</div><div class="line">        <span class="comment">// The activity is about to become visible.</span></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onResume();</div><div class="line">        <span class="comment">// The activity has become visible (it is now "resumed").</span></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPause();</div><div class="line">        <span class="comment">// Another activity is taking focus (this activity is about to be "paused").</span></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStop();</div><div class="line">        <span class="comment">// The activity is no longer visible (it is now "stopped")</span></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        <span class="comment">// The activity is about to be destroyed.</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这些方法共同定义 Activity 的整个生命周期——可以通过实现这些方法监控 Activity 生命周期中的三个嵌套循环：</p>
+<ul>
+<li>Activity 的整个生命周期发生在 onCreate() 调用与 onDestroy() 调用之间。</li>
+<li>Activity 的可见生命周期发生在 onStart() 调用与 onStop() 调用之间。</li>
+<li>Activity 的前台生命周期发生在 onResume() 调用与 onPause() 调用之间。</li>
+</ul>
+<h3 id="Services"><a href="#Services" class="headerlink" title="Services"></a><strong>Services</strong></h3><p><strong>服务</strong>是一种在后台运行的组件，用于执行长时间运行的操作或为远程进程执行作业。服务不提供用户界面。服务不影响其他活动与用户的交互，如用户在浏览器中阅读网页时，另外一个程序的服务可以在后台播放歌曲。活动等其他组件可以启动服务，让其运行或与其绑定以便与其进行交互。</p>
+<p>服务有两种，启动和绑定：</p>
+<ul>
+<li>started：当应用组件（如 Activity）通过调用 startService() 启动服务时，服务即处于“启动”状态。一旦启动，服务即可在后台无限期运行，即使启动服务的组件已被销毁也不受影响。可见，<strong>当服务是started状态时，其生命周期与启动它的组件无关。</strong></li>
+<li>bound：当应用组件通过调用 bindService() 绑定到服务时，服务即处于“绑定”状态。绑定服务提供了一个客户端-服务器接口， <strong>仅当与另一个应用组件绑定时，绑定服务才会运行。</strong> 调用者（如一个Activity）与服务绑定在了一起，调用者一旦退出，服务也就终止。多个组件可以同时绑定到该服务，但全部取消绑定后，该服务即会被销毁。</li>
+</ul>
+<p>需要注意的是，服务也可以以两种方式同时存在——问题的关键在于回调方法的具体实现。另外，和Activity一样，在程序清单中需要声明所有服务。</p>
+<p>服务的生命周期较为简单：</p>
+<p><img src="http://www.android-doc.com/images/service_lifecycle.png" alt="服务生命周期"></p>
+<h3 id="Content-providers"><a href="#Content-providers" class="headerlink" title="Content providers"></a><strong>Content providers</strong></h3><p><strong>内容提供者</strong>管理一组可以共享的应用数据，也叫内容提供程序。其他应用可以通过内容提供程序查询，甚至修改数据（如果内容提供程序允许）。 例如，Android 系统可提供管理用户联系人信息的内容提供程序。另外，内容提供程序也适用于读取和写入不共享的私有数据。它的好处是统一了数据访问方式。Content Provider的主要用法是借助<strong>ContentResolver对象</strong>用作客户端来与提供程序通信。</p>
+<p><strong>内容 URI</strong> 是用于在提供程序中标识数据的 URI。内容 URI 包括整个提供程序的符号名称（其权限）和一个指向表的名称（路径）。这里的URI以content://作为前缀，表示该数据由ContentProvider来管理。</p>
+<h3 id="Broadcast-receivers"><a href="#Broadcast-receivers" class="headerlink" title="Broadcast receivers"></a><strong>Broadcast receivers</strong></h3><p><strong>广播接收器</strong>是一种用于响应系统范围广播通知的组件。 许多广播都是由系统发起的—例如电池电量不足。应用也可以发起广播，如通知其他应用某些数据已下载至设备且可供给使用。应用可以使用它对外部事件进行过滤，只对感兴趣的外部事件通知(如当电话呼入时，或者WIFI网络可用时)进行接收并做出响应。</p>
+<p>广播接收器<strong>不会显示用户界面</strong>，但它们可以创建状态栏通知，在发生广播事件时提醒用户。Broadcast receiver的注册有两种方法，分别是程序动态注册和在AndroidManifest清单文件中进行静态注册。这个组件可以看做是一种程序间通信的“桥梁”。</p>
+<h3 id="有关组件的其他"><a href="#有关组件的其他" class="headerlink" title="有关组件的其他"></a><strong>有关组件的其他</strong></h3><p>按照官方文档自夸的说法，Android系统设计的独特之处在于，任何应用都可以启动其他应用的组件。例如，如果想让用户使用设备的相机拍摄照片，很可能有另一个应用已经可以执行该操作，那么这个应用就可以利用另外一个应用，而不是开发一个 Activity来自行拍摄照片。 </p>
+<p>当系统启动某个组件时，会启动该应用的进程（如果尚未运行），并实例化该组件所需的类。四种组件类型中的三种—Activity、服务和广播接收器—通过名为<strong>Intent</strong>的异步消息进行启动。Intent会在运行时将各个组件相互绑定（可以将 Intent视为请求操作的信使）。</p>
+<h3 id="清单文件"><a href="#清单文件" class="headerlink" title="清单文件"></a><strong>清单文件</strong></h3><p>在 Android 系统启动应用组件之前，系统必须通过读取应用的<strong>AndroidManifest.xml</strong>文件（“清单”文件）确认组件存在。应用必须在此文件中声明其所有组件，该文件必须位于应用项目目录的根目录中。AndroidManifest文件中未进行声明的活动、服务以及内容提供者将不为系统所见，从而也就不可用。</p>
+<p>当然，清单文件还有别的重要作用，如：</p>
+<ul>
+<li>确定应用需要的任何用户权限，如互联网访问权限或对用户联系人的读取权限。</li>
+<li>根据应用使用的 API，声明应用所需的最低API 级别（如6.0系统的API Level就是23，4.3版本则是18）。</li>
+<li>声明应用使用或需要的硬件和软件功能，如相机、蓝牙服务或多点触摸屏幕。</li>
+</ul>
+<h2 id="应用资源"><a href="#应用资源" class="headerlink" title="应用资源"></a><strong>应用资源</strong></h2><p>Android应用显然并非只有代码—它还需要与源代码分离的资源，如图像、音频文件以及任何与应用的具体呈现有关的内容。<strong>对于每一项资源，SDK 构建工具都会定义一个唯一的整型 ID</strong>，利用它可以引用应用代码或 XML 中定义的其他资源中的资源。各种资源理应放入项目 res/ 目录的特定子目录之下，常见的目录有drawable, layout, mipmap, values等。</p>
+<h2 id="如何入门Android开发"><a href="#如何入门Android开发" class="headerlink" title="如何入门Android开发"></a><strong>如何入门Android开发</strong></h2><p>要入门Android开发，我个人认为需要做好的准备如下：</p>
+<ol>
+<li>掌握Java语言。</li>
+<li>初步了解Android的世界观，正如上文所述。</li>
+<li>搭建开发环境，配置好JVM环境（以及JDK等Java环境），Android Studio（谷歌官方推荐的开发平台，已逐渐取代Eclipse）， Android SDK（用于ADB，应用调试和API管理等）与Genymotion（目前流行的Android Virtual Device插件工具，胜于Android Studio自带的AVD）。</li>
+<li>学会有效地利用谷歌搜索和安卓官方网站。</li>
+</ol>
+<p>以上就是成为一个Android Developer所需的简单准备条件，Android本身是个复杂的体系，学习起来有一定难度，需要耐心和不断思考。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a><strong>参考资料</strong></h2><p>这里列出本文的参考资料，同时也为读者提供更多关于本文主题的阅读素材。</p>
+<p><a href="https://en.wikipedia.org/wiki/Android_(operating_system" target="_blank" rel="external">https://en.wikipedia.org/wiki/Android_(operating_system</a>)<br><a href="http://blog.csdn.net/luoshengyang/article/details/8852432" target="_blank" rel="external">http://blog.csdn.net/luoshengyang/article/details/8852432</a><br><a href="http://blog.csdn.net/andyxm/article/details/6126907/" target="_blank" rel="external">http://blog.csdn.net/andyxm/article/details/6126907/</a><br><a href="http://developer.android.com/intl/zh-cn/guide/components/fundamentals.html" target="_blank" rel="external">http://developer.android.com/intl/zh-cn/guide/components/fundamentals.html</a><br><a href="http://developer.android.com/intl/zh-cn/ndk/index.html" target="_blank" rel="external">http://developer.android.com/intl/zh-cn/ndk/index.html</a><br><a href="http://blog.csdn.net/cruise_h/article/details/12610133" target="_blank" rel="external">http://blog.csdn.net/cruise_h/article/details/12610133</a><br><a href="http://developer.android.com/guide/index.html" target="_blank" rel="external">http://developer.android.com/guide/index.html</a><br><a href="http://blog.csdn.net/ican87/article/details/21874321" target="_blank" rel="external">http://blog.csdn.net/ican87/article/details/21874321</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如您喜欢这篇文章，可赠我一杯可乐或咖啡。</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/WCreward.png" alt="YangZ WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ZFBrew.jpg" alt="YangZ Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/21/如何求二进制表示中“1”的个数/" rel="next" title="如何求二进制表示中“1”的个数">
+                <i class="fa fa-chevron-left"></i> 如何求二进制表示中“1”的个数
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/31/读Sam WaltonMade in America/" rel="prev" title="读Sam Walton Made in America">
+                读Sam Walton Made in America <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/31/Android的基本世界观——系统简介，组件逻辑及其他/"
+           data-title="Android的基本世界观——系统简介，组件逻辑及其他" data-url="http://yoursite.com/2016/03/31/Android的基本世界观——系统简介，组件逻辑及其他/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="YangZ" />
+          <p class="site-author-name" itemprop="name">YangZ</p>
+          <p class="site-description motion-element" itemprop="description">All in or nothing.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AllenZYoung" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/allzyoung" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android系统"><span class="nav-text">Android系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#历史与现状"><span class="nav-text">历史与现状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统与系统架构"><span class="nav-text">系统与系统架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他特征"><span class="nav-text">其他特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android四大组件"><span class="nav-text">Android四大组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activities"><span class="nav-text">Activities</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Services"><span class="nav-text">Services</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Content-providers"><span class="nav-text">Content providers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Broadcast-receivers"><span class="nav-text">Broadcast receivers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有关组件的其他"><span class="nav-text">有关组件的其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清单文件"><span class="nav-text">清单文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用资源"><span class="nav-text">应用资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何入门Android开发"><span class="nav-text">如何入门Android开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YangZ</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"allenzyoung"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
